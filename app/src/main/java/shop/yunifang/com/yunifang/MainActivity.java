@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity implements ViewsInterface{
         setContentView(R.layout.activity_main);
         init();
     }
-
+//TODO数据库操作
     private void init() {
         myPent = new MyPent(this);
         MyPent.myPent(this, Api.xiaohua);
