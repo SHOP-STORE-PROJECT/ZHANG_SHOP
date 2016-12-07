@@ -27,6 +27,11 @@ public class MainActivity extends FragmentActivity implements ViewsInterface,Vie
     private RadioButton rb02;
     private RadioButton rb03;
     private RadioButton rb04;
+
+    static final int MENU_MANUAL_REFRESH = 0;
+    static final int MENU_DISABLE_SCROLL = 1;
+    static final int MENU_SET_MODE = 2;
+    static final int MENU_DEMO = 3;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,7 +39,10 @@ public class MainActivity extends FragmentActivity implements ViewsInterface,Vie
         init();
         //android.support.v4.app.Fragment导航页
         yuNiFangFragment();
+
     }
+
+
     private void yuNiFangFragment() {
         //获取fragment
         fragment = getSupportFragmentManager();
