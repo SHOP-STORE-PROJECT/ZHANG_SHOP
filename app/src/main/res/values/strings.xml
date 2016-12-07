@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">YuNiFang</string>
+    <string name="shouye">首页</string>
+    <string name="fenlei">分类</string>
+    <string name="gouwuche">购物车</string>
+    <string name="login">登陆</string>
+    <string name="daifukuan">待付款</string>
+    <string name="daifahuo">代发货</string>
+    <string name="daishouhuo">待收货</string>
+    <string name="daipingjia">待评价</string>
+    <string name="tuikuan">退款</string>
 </resources>
