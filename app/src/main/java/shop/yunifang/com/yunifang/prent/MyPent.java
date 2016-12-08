@@ -1,12 +1,12 @@
 package shop.yunifang.com.yunifang.prent;
 
 import android.content.Context;
-import android.util.Log;
 
 import com.android.volley.VolleyError;
 
-import shop.yunifang.com.yunifang.MainActivity;
 import shop.yunifang.com.yunifang.activity.views.ViewsInterface;
+import shop.yunifang.com.yunifang.fragment.Fragment_fl;
+import shop.yunifang.com.yunifang.fragment.Fragment_sy;
 import shop.yunifang.com.yunifang.modle.CallBack;
 import shop.yunifang.com.yunifang.modle.HttpUtils;
 
@@ -16,23 +16,35 @@ import shop.yunifang.com.yunifang.modle.HttpUtils;
 
 public class MyPent {
     //对获得的数据进行操作
-    private ViewsInterface mAnInterface;
-    private HttpUtils mUtils;
-    public MyPent(MainActivity mAnInterface) {
-        this.mAnInterface = mAnInterface;
-    }
+    private static ViewsInterface mAnInterface;
+
     //对httputils进行初始化操作
     public static void myPent(Context context,String url){
         HttpUtils.netRequest(context).volleyRequest(url,new CallBack() {
             @Override
             public void httpSuccess(String response) {
-                Log.e("TAG","                  ------"+response);
+//                Log.e("TAG","                  ------"+response);
+//                SubBean bean = gson.fromJson(response,SubBean.class);
+//                String msg = bean.msg;
+//                if(msg.equals("success")){
+              mAnInterface.successGet(response);
+//                }
             }
-
             @Override
             public void httpFailed(VolleyError error) {
-
+                mAnInterface.failedGet("数据返回失败");
             }
         });
+    }
+    public void setSy(Fragment_sy mAnInterface) {
+        this.mAnInterface = mAnInterface;
+    }
+
+    public void setFl(Fragment_fl mAnInterface) {
+        this.mAnInterface = mAnInterface;
+    }
+
+    public void setMain(ViewsInterface mAnInterface) {
+        this.mAnInterface = mAnInterface;
     }
 }
