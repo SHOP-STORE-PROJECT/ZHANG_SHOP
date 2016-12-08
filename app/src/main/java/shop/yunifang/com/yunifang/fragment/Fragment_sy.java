@@ -80,7 +80,7 @@ public class Fragment_sy extends Fragment {
 
         mListItems = new LinkedList<String>();
         mListItems.addAll(Arrays.asList(mStrings));
-
+//适配器
         mAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, mListItems);
 
         /**
