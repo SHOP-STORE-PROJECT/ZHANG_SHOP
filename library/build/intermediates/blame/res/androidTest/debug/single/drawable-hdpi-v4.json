@@ -1,14 +1,14 @@
 [
     {
-        "merged": "E:\\YuNifFang\\YuNiFang2\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\default_ptr_flip.png",
-        "source": "E:\\YuNifFang\\YuNiFang2\\library\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\default_ptr_flip.png"
+        "merged": "E:\\ZHANG_SHOP\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\default_ptr_rotate.png",
+        "source": "E:\\ZHANG_SHOP\\library\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\default_ptr_rotate.png"
     },
     {
-        "merged": "E:\\YuNifFang\\YuNiFang2\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\default_ptr_rotate.png",
-        "source": "E:\\YuNifFang\\YuNiFang2\\library\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\default_ptr_rotate.png"
+        "merged": "E:\\ZHANG_SHOP\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\default_ptr_flip.png",
+        "source": "E:\\ZHANG_SHOP\\library\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\default_ptr_flip.png"
     },
     {
-        "merged": "E:\\YuNifFang\\YuNiFang2\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\indicator_arrow.png",
-        "source": "E:\\YuNifFang\\YuNiFang2\\library\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\indicator_arrow.png"
+        "merged": "E:\\ZHANG_SHOP\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\indicator_arrow.png",
+        "source": "E:\\ZHANG_SHOP\\library\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\indicator_arrow.png"
     }
 ]
