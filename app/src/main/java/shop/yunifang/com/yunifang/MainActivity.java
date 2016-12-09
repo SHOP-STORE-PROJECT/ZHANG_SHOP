@@ -44,21 +44,8 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     private void yuNiFangFragment() {
         //获取fragment
         fragment = getSupportFragmentManager();
-//        FragmentTransaction transaction = fragment.beginTransaction();
-        //获取四个页面fragment对象
+
         fragment.beginTransaction().replace(R.id.fragment,new Fragment_sy()).commit();
-        //添加
-//        transaction.add(R.id.fragment, fragment_sy);
-//        transaction.add(R.id.fragment, fragment_fl);
-//        transaction.add(R.id.fragment, fragment_gw);
-//        transaction.add(R.id.fragment, fragment_wd);
-        //设置隐藏与现实
-//        transaction.hide(fragment_wd);
-//        transaction.hide(fragment_fl);
-//        transaction.hide(fragment_gw);
-//        transaction.show(fragment_sy);
-//        //提交事务
-//        transaction.commit();
 
     }
     private void init() {
@@ -80,32 +67,19 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         switch (v.getId()) {
             case R.id.rb01:
                 transaction1.replace(R.id.fragment,new Fragment_sy());
-//                MyPent.myPent(this, Api.homeUrl);
-//                transaction1.hide(fragment_fl);
-//                transaction1.hide(fragment_gw);
-//                transaction1.hide(fragment_wd);
-//                transaction1.show(fragment_sy);
+
                 break;
             case R.id.rb02:
                 transaction1.replace(R.id.fragment,new Fragment_fl());
-//                transaction1.hide(fragment_sy);
-//                transaction1.hide(fragment_gw);
-//                transaction1.hide(fragment_wd);
-//                transaction1.show(fragment_fl);
+
                 break;
             case R.id.rb03:
                 transaction1.replace(R.id.fragment,new Fragment_gw());
-//                transaction1.hide(fragment_sy);
-//                transaction1.hide(fragment_fl);
-//                transaction1.hide(fragment_wd);
-//                transaction1.show(fragment_gw);
+
                 break;
             case R.id.rb04:
                 transaction1.replace(R.id.fragment,new Fragment_wd());
-//                transaction1.hide(fragment_sy);
-//                transaction1.hide(fragment_fl);
-//                transaction1.hide(fragment_gw);
-//                transaction1.show(fragment_wd);
+
                 break;
         }
         transaction1.commit();
