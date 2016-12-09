@@ -67,7 +67,7 @@ public class Fragment_sy extends Fragment implements ViewsInterface{
                 refreshView.getLoadingLayoutProxy().setLastUpdatedLabel(label);
 
                 // Do work to refresh the list here.
-                new GetDataTask().execute();
+//                new GetDataTask().execute();
             }
         });
 
