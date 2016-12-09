@@ -41,7 +41,6 @@ public class Fragment_sy extends Fragment implements ViewsInterface{
     static final int MENU_DEMO = 3;
     private ArrayAdapter<String> mAdapter;
     private MyPent pent;
-//123
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
