@@ -42,7 +42,7 @@
     <LinearLayout
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         >
@@ -64,15 +64,19 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/selected_login"
+                android:clickable="true"
+                android:focusable="true"
                 />
 
             <ImageView
-
                 android:id="@+id/img_sj"
                 android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/selected_login_2"
+                android:clickable="true"
+                android:focusable="true"
+                style="?attr/buttonStyle"
                 />
 
         </LinearLayout>
