@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.text.format.DateUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -22,11 +23,14 @@ import java.util.Arrays;
 import java.util.LinkedList;
 
 import shop.yunifang.com.yunifang.R;
+import shop.yunifang.com.yunifang.activity.views.ViewsInterface;
+import shop.yunifang.com.yunifang.modle.Api;
+import shop.yunifang.com.yunifang.prent.MyPent;
 
 /**
  * Created by ZhangDongXu on 2016/12/6.
  */
-public class Fragment_sy extends Fragment {
+public class Fragment_sy extends Fragment implements ViewsInterface{
     private Context context;
     private View view;
     private PullToRefreshListView mPullRefreshListView;
@@ -36,13 +40,17 @@ public class Fragment_sy extends Fragment {
     static final int MENU_SET_MODE = 2;
     static final int MENU_DEMO = 3;
     private ArrayAdapter<String> mAdapter;
+    private MyPent pent;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         context = getActivity();
+        pent = new MyPent();
+        pent.setSy(this);
+        MyPent.myPent(context, Api.homeUrl);
         view = View.inflate(context, R.layout.fragment_sy, null);
-        mPullRefreshListView = (PullToRefreshListView)view.findViewById(R.id.pull_refresh_list);
+        mPullRefreshListView = (PullToRefreshListView)view.findViewById(R.id.pull_refresh_sy);
         //刷新界面
         refreshFragment();
         return view;
@@ -96,6 +104,17 @@ public class Fragment_sy extends Fragment {
         // mPullRefreshListView.setAdapter(mAdapter)
         actualListView.setAdapter(mAdapter);
     }
+
+    @Override
+    public void successGet(String datas) {
+        Log.e("Fragment=======sy",datas);
+    }
+
+    @Override
+    public void failedGet(String errCode) {
+
+    }
+
     private class GetDataTask extends AsyncTask<Void, Void, String[]> {
 
         @Override

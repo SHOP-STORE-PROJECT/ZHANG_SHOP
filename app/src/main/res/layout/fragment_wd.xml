@@ -2,87 +2,95 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    >
+    android:orientation="vertical">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="170dp"
-        android:background="@mipmap/user_center_bg"
-        >
+        android:layout_height="150dp"
+        android:background="@mipmap/user_center_bg">
+
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/user_setting"
             android:layout_above="@+id/view"
             android:layout_alignParentEnd="true"
             android:layout_marginRight="10dp"
             android:layout_marginTop="10dp"
-            />
+            android:src="@mipmap/user_setting" />
+
         <shop.yunifang.com.yunifang.view.CircleImageView
+            android:id="@+id/view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/user_icon_no_set"
-            android:layout_centerVertical="true"
             android:layout_centerHorizontal="true"
-            android:id="@+id/view" />
+            android:layout_centerVertical="true"
+            android:src="@mipmap/user_icon_no_set" />
+
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/shap"
-            android:text="               登录                "
-            android:textSize="12sp"
             android:id="@+id/tv_login"
+            android:layout_width="150dp"
+            android:layout_height="25dp"
             android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/shap"
+            android:gravity="center"
+            android:text="登录"
+            android:textSize="12sp" />
     </RelativeLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="20dp"
-        android:background="#FFFFFF"
-        ></LinearLayout>
+        android:background="#FFFFFF"></LinearLayout>
+
     <LinearLayout
-        android:background="#FFFFFF"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        >
+        android:layout_height="50dp"
+        android:background="#FFFFFF"
+        android:gravity="center"
+        android:orientation="horizontal">
+
         <TextView
-            android:layout_weight="1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:drawableTop="@mipmap/wait_pay"
-            android:text="  代付款"
-            />
+            android:gravity="center"
+            android:text="代付款" />
+
         <TextView
-            android:layout_weight="1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:drawableTop="@mipmap/wait_send_good"
-            android:text="    代发货"
-            />
+            android:gravity="center"
+            android:text="代发货" />
+
         <TextView
-            android:layout_weight="1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:drawableTop="@mipmap/wait_receive_good"
-            android:text="     待收货"
-            />
+            android:gravity="center"
+            android:text="待收货" />
+
         <TextView
-            android:layout_weight="1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:drawableTop="@mipmap/wait_evaluate"
-            android:text="     待评价"
-            />
+            android:gravity="center"
+            android:text="待评价" />
+
         <TextView
-            android:layout_weight="1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:drawableTop="@mipmap/wait_refund"
-            android:text="       退款"
-            />
+            android:gravity="center"
+            android:text="退款" />
     </LinearLayout>
+
     <ListView
         android:id="@+id/fragment_lv"
         android:layout_width="match_parent"
@@ -90,8 +98,6 @@
         android:paddingBottom="@dimen/activity_vertical_margin"
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin"
-        android:paddingTop="@dimen/activity_vertical_margin"
-        >
-    </ListView>
+        android:paddingTop="@dimen/activity_vertical_margin"></ListView>
 
 </LinearLayout>

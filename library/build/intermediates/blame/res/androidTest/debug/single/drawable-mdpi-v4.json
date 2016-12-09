@@ -2,12 +2,30 @@
     {
         "merged": "E:\\ZHANG_SHOP\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4\\indicator_arrow.png",
         "source": "E:\\ZHANG_SHOP\\library\\build\\intermediates\\bundles\\debug\\res\\drawable-mdpi-v4\\indicator_arrow.png"
+<<<<<<< Updated upstream
+=======
+    },
+    {
+        "merged": "E:\\YuNifFang\\YuNiFang2\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4\\default_ptr_flip.png",
+        "source": "E:\\YuNifFang\\YuNiFang2\\library\\build\\intermediates\\bundles\\debug\\res\\drawable-mdpi-v4\\default_ptr_flip.png"
+>>>>>>> Stashed changes
     },
     {
         "merged": "E:\\ZHANG_SHOP\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4\\default_ptr_rotate.png",
         "source": "E:\\ZHANG_SHOP\\library\\build\\intermediates\\bundles\\debug\\res\\drawable-mdpi-v4\\default_ptr_rotate.png"
     },
     {
+<<<<<<< Updated upstream
+=======
+        "merged": "E:\\ZHANG_SHOP\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4\\default_ptr_rotate.png",
+        "source": "E:\\ZHANG_SHOP\\library\\build\\intermediates\\bundles\\debug\\res\\drawable-mdpi-v4\\default_ptr_rotate.png"
+    },
+    {
+        "merged": "E:\\YuNifFang\\YuNiFang2\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4\\default_ptr_rotate.png",
+        "source": "E:\\YuNifFang\\YuNiFang2\\library\\build\\intermediates\\bundles\\debug\\res\\drawable-mdpi-v4\\default_ptr_rotate.png"
+    },
+    {
+>>>>>>> Stashed changes
         "merged": "E:\\ZHANG_SHOP\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4\\default_ptr_flip.png",
         "source": "E:\\ZHANG_SHOP\\library\\build\\intermediates\\bundles\\debug\\res\\drawable-mdpi-v4\\default_ptr_flip.png"
     }

@@ -47,7 +47,9 @@ public class HttpUtils {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                      callBack.httpSuccess(response);
+                        if(callBack!=null) {
+                            callBack.httpSuccess(response);
+                        }
                     }
                 }, new Response.ErrorListener() {
             @Override
