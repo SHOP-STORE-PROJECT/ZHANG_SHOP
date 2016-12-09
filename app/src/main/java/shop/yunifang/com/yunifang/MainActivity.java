@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.View;
 import android.widget.RadioButton;
 
@@ -38,6 +39,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         init();
         //android.support.v4.app.Fragment导航页
         yuNiFangFragment();
+        Log.d("TAG============","QEWEQWWQEQEWEQWWWWWWWWWWWWWWWWWWDSDDSFRR");
     }
     private void yuNiFangFragment() {
         //获取fragment
