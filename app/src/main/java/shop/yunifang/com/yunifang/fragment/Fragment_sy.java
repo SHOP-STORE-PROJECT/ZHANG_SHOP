@@ -16,14 +16,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
-
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import com.handmark.pulltorefresh.library.extras.SoundPullEventListener;
-
 import java.util.List;
-
-import shop.yunifang.com.yunifang.R;
 import shop.yunifang.com.yunifang.activity.views.ViewsInterface;
 import shop.yunifang.com.yunifang.adapter.MyFirstAdapter;
 import shop.yunifang.com.yunifang.bean.SubBean;

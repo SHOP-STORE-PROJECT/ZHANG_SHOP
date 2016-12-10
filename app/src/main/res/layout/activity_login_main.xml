@@ -14,7 +14,8 @@
     android:background="#ffffff"
     >
     <ImageView
-        android:layout_marginLeft="20dp"
+        android:id="@+id/img_back"
+        android:layout_marginLeft="10dp"
         android:layout_width="wrap_content"
         android:layout_height="18dp"
         android:src="@mipmap/back_normal"
@@ -36,7 +37,7 @@
         android:textColor="#f0c"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
-        android:layout_marginRight="20dp"
+        android:layout_marginRight="10dp"
         />
 </RelativeLayout>
     <LinearLayout
@@ -46,11 +47,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         >
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            >
+
         <LinearLayout
             android:layout_marginTop="30dp"
             android:layout_width="match_parent"
@@ -59,38 +56,126 @@
             >
 
             <ImageView
-                android:id="@+id/img_zh"
+                android:id="@+id/img_zh1"
                 android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/selected_login"
-                android:clickable="true"
-                android:focusable="true"
-                />
+                android:background="@mipmap/zz1"
 
+                />
             <ImageView
-                android:id="@+id/img_sj"
+                android:id="@+id/img_zh3"
                 android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/selected_login_2"
-                android:clickable="true"
-                android:focusable="true"
-                style="?attr/buttonStyle"
+                android:background="@mipmap/zz3"
+                android:visibility="gone"
+                />
+            <ImageView
+                android:id="@+id/img_sj2"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@mipmap/zz2"
+                />
+            <ImageView
+                android:visibility="gone"
+                android:id="@+id/img_sj4"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@mipmap/zz4"
                 />
 
         </LinearLayout>
             <EditText
+                android:id="@+id/ed_name"
                 android:background="#ffffff"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
+                android:hint="手机号"
                 />
-        </LinearLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    >
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
         <EditText
-            android:layout_marginTop="10dp"
+            android:layout_weight="1"
             android:background="#ffffff"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:id="@+id/editText" />
+            android:id="@+id/ed_parss"
+            android:hint="密码"
+            android:password="true"
+            />
+        <EditText
+            android:layout_weight="1"
+            android:background="#ffffff"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:id="@+id/ed_yz"
+            android:hint="验证码"
+            android:visibility="gone"
+            />
+        <ImageView
+            android:visibility="gone"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@mipmap/dd"
+            android:id="@+id/img_yzm" />
     </LinearLayout>
+</LinearLayout>
+
+        <LinearLayout
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="vertical"
+            >
+                <TextView
+                    android:id="@+id/tv_wj_parss"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="忘记密码"
+                    />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:src="@mipmap/login_sj"
+            android:scaleType="fitXY"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="100dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+    <TextView
+        android:id="@+id/img_login_dsf"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:text="第三方登录 〉"
+        android:textColor="#ff4f4f"
+        android:gravity="center"
+        />
+        <TextView
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="第三方快速登录用户不享受任何御泥坊会员权益"
+            />
+    </LinearLayout>
+
 </LinearLayout>
