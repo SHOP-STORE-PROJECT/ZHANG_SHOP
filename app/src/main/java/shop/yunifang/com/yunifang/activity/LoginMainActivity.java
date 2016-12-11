@@ -9,13 +9,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.PopupWindow;
+import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,6 +27,7 @@ import cn.smssdk.SMSSDK;
 import shop.yunifang.com.yunifang.R;
 
 import static com.mob.tools.utils.R.getStringRes;
+import static shop.yunifang.com.yunifang.R.mipmap.share_qq;
 
 public class LoginMainActivity extends AppCompatActivity {
 
@@ -45,6 +49,9 @@ public class LoginMainActivity extends AppCompatActivity {
     private String iCord;
     private boolean flag = true;// 验证码是否正确标记
     private int time = 60;
+    private ImageView Share_qq;
+
+
 
 
     @Override
@@ -56,11 +63,12 @@ public class LoginMainActivity extends AppCompatActivity {
         mobLogin();
 
         //初始化控件
-            initView();
-
+        initView();
 
     }
 
+
+    //手机第三方登录
     private void mobLogin() {
 
         SMSSDK.initSDK(this, "1914d1e0f1a38",
@@ -168,6 +176,7 @@ public class LoginMainActivity extends AppCompatActivity {
     };
 
 
+
     //第三方登录popwind监听
     View.OnClickListener dsfonclist=new View.OnClickListener() {
         @Override
@@ -175,20 +184,30 @@ public class LoginMainActivity extends AppCompatActivity {
 
 
             View view1= View.inflate(LoginMainActivity.this, R.layout.popw, null);
-
+            //点击qq第三方登录
+             Share_qq = (ImageView)view1.findViewById(R.id.share_qq);
+             Share_qq.setOnClickListener(qqonclist);
             Log.d(TAG,"--------------------------------------");
 
             // 创建 popuWindow对象 视图文件宽高是否能得到焦点
-            PopupWindow popuwind = new PopupWindow(view1, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT, true);
-            // 点击其他区域进行关闭popuWindow对话框
-            popuwind.setOutsideTouchable(true);
-            popuwind.setBackgroundDrawable(new ColorDrawable(Color.BLUE));
-//				popuwind.showAsDropDown(ks_text);
-            popuwind.showAtLocation(view, Gravity.BOTTOM, 0, 0);
-        }
+            PopupWindow popuwind = new PopupWindow(view1, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+
+        // 点击其他区域进行关闭popuWindow对话框
+        popuwind.setOutsideTouchable(true);
+
+
+        popuwind.showAtLocation(view, Gravity.BOTTOM, 0, 0);
+
+    }
     };
 
-
+    //点击qq第三方登录
+    View.OnClickListener qqonclist=new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            
+        }
+    };
     //手机第三方登录监听
     View.OnClickListener butloginsjlist=new View.OnClickListener() {
         @Override
@@ -322,5 +341,14 @@ public class LoginMainActivity extends AppCompatActivity {
     }
 
 
+    //----------------------------------------------------------------------------
+    //popwind背景变暗
+    private void darkenBackgroud(Float bgcolor) {
+        WindowManager.LayoutParams lp = getWindow().getAttributes();
+        lp.alpha = bgcolor;
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
+        getWindow().setAttributes(lp);
+    }
+//----------------------------------------------------------------------------------
 
 }
