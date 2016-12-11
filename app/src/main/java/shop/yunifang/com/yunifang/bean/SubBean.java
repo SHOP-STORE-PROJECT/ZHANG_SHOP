@@ -14,6 +14,7 @@ public class SubBean {
 
     public class SubDataBean {
         public List<SubjectBean> subjects;
+        public List<DefaultGoodsListBean>defaultGoodsList;
     }
 
     public class SubjectBean {
@@ -30,6 +31,12 @@ public class SubBean {
         public float market_price;
         public float shop_price;
     }
-
-
+public class DefaultGoodsListBean{
+    public String efficacy;
+    public String goods_img;
+    public String goods_name;
+    public String market_price;
+    public String shop_price;
+    public String watermarkUrl;
+}
 }
