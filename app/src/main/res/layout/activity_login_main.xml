@@ -104,6 +104,7 @@
         android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <EditText
             android:layout_weight="1"
             android:background="#ffffff"
@@ -113,6 +114,7 @@
             android:hint="密码"
             android:password="true"
             />
+
         <EditText
             android:layout_weight="1"
             android:background="#ffffff"
@@ -122,13 +124,14 @@
             android:hint="验证码"
             android:visibility="gone"
             />
-        <ImageView
+        <Button
             android:visibility="gone"
             android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@mipmap/dd"
-            android:id="@+id/img_yzm" />
+            android:id="@+id/img_yzm"
+            android:text="获取验证码"
+            />
     </LinearLayout>
 </LinearLayout>
 
@@ -138,15 +141,17 @@
             android:layout_height="40dp"
             android:orientation="vertical"
             >
-                <TextView
-                    android:id="@+id/tv_wj_parss"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="忘记密码"
-                    />
+
+            <TextView
+                android:id="@+id/tv_wj_parss"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="忘记密码"
+                />
         </LinearLayout>
 
         <ImageView
+            android:id="@+id/but_login_sj"
             android:layout_marginTop="20dp"
             android:layout_width="match_parent"
             android:layout_height="40dp"
