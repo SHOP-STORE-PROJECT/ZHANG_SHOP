@@ -3,9 +3,14 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical">
-
+<TextView
+    android:textColor="@color/colorAccent"
+    android:textSize="18sp"
+    android:gravity="center"
+    android:text="御泥坊VIP商城"
+    android:layout_width="match_parent"
+    android:layout_height="50dp" />
     <!-- The PullToRefreshListView replaces a standard ListView widget. -->
-
     <com.handmark.pulltorefresh.library.PullToRefreshListView
         android:id="@+id/pull_refresh_sy"
         android:layout_width="fill_parent"

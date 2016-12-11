@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.text.format.DateUtils;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -24,6 +23,7 @@ import java.util.LinkedList;
 
 import shop.yunifang.com.yunifang.R;
 import shop.yunifang.com.yunifang.activity.views.ViewsInterface;
+import shop.yunifang.com.yunifang.bean.SubBean;
 import shop.yunifang.com.yunifang.modle.Api;
 import shop.yunifang.com.yunifang.prent.MyPent;
 
@@ -109,8 +109,8 @@ public class Fragment_fl extends Fragment implements ViewsInterface{
         actualListView.setAdapter(mAdapter);
     }
     @Override
-    public void successGet(String datas) {
-        Log.e("Fragment=======fl",datas);
+    public void successGet(SubBean datas) {
+
     }
 
     @Override

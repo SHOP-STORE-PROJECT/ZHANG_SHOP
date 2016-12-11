@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.util.Log;
 import android.view.View;
 import android.widget.RadioButton;
 
@@ -16,19 +15,10 @@ import shop.yunifang.com.yunifang.fragment.Fragment_wd;
 public class MainActivity extends FragmentActivity implements View.OnClickListener{
 
     private FragmentManager fragment;
-    private Fragment_sy fragment_sy;
-    private Fragment_fl fragment_fl;
-    private Fragment_gw fragment_gw;
-    private Fragment_wd fragment_wd;
     private RadioButton rb01;
     private RadioButton rb02;
     private RadioButton rb03;
     private RadioButton rb04;
-
-    static final int MENU_MANUAL_REFRESH = 0;
-    static final int MENU_DISABLE_SCROLL = 1;
-    static final int MENU_SET_MODE = 2;
-    static final int MENU_DEMO = 3;
     private FragmentTransaction transaction1;
 
     @Override
@@ -39,7 +29,6 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         init();
         //android.support.v4.app.Fragment导航页
         yuNiFangFragment();
-        Log.d("TAG============","QEWEQWWQEQEWEQWWWWWWWWWWWWWWWWWWDSDDSFRR");
     }
     private void yuNiFangFragment() {
         //获取fragment

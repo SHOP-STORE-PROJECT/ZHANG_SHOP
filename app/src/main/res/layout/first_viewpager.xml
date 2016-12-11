@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <android.support.v4.view.ViewPager
+        android:id="@+id/first_pager"
+        android:layout_width="match_parent"
+        android:scaleType="fitXY"
+        android:layout_height="250dp" />
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="200dp">
+<LinearLayout
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="100dp">
+    <ImageView
+        android:src="@drawable/year_happy1"
+        android:layout_weight="1"
+        android:id="@+id/year_happy1"
+        android:layout_width="match_parent"
+        android:layout_height="100dp" /> <ImageView
+        android:layout_weight="1"
+        android:id="@+id/year_happy2"
+        android:src="@drawable/year_happy2"
+        android:layout_width="match_parent"
+        android:layout_height="100dp" /> <ImageView
+        android:layout_weight="1"
+        android:id="@+id/year_happy3"
+    android:src="@drawable/year_happy3"
+        android:layout_width="match_parent"
+        android:layout_height="100dp" /> <ImageView
+        android:layout_weight="1"
+        android:id="@+id/year_happy4"
+    android:src="@drawable/year_happy4"
+        android:layout_width="match_parent"
+        android:layout_height="100dp" />
+</LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="100dp">
+        <ImageView
+            android:src="@drawable/year_happy5"
+            android:layout_weight="1"
+            android:id="@+id/year_happy5"
+            android:layout_width="match_parent"
+            android:layout_height="100dp" /> <ImageView
+        android:layout_weight="1"
+        android:id="@+id/year_happy6"
+          android:src="@drawable/year_happy6"
+        android:layout_width="match_parent"
+        android:layout_height="100dp" /> <ImageView
+        android:layout_weight="1"
+        android:id="@+id/year_happy7"
+        android:src="@drawable/year_happy7"
+        android:layout_width="match_parent"
+        android:layout_height="100dp" /> <ImageView
+        android:layout_weight="1"
+        android:id="@+id/year_happy8"
+        android:src="@drawable/year_happy8"
+        android:layout_width="match_parent"
+        android:layout_height="100dp" />
+    </LinearLayout>
+</LinearLayout>
+    <TextView
+        android:background="@color/secondary_text"
+        android:layout_width="match_parent"
+        android:layout_height="10dp" />
+    <TextView
+        android:gravity="center"
+        android:text="--  优惠活动  --"
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="150dp">
+        <android.support.v4.view.ViewPager
+            android:id="@+id/youhui_viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="150dp" />
+    </HorizontalScrollView>
+    <TextView
+        android:background="@color/secondary_text"
+        android:layout_width="match_parent"
+        android:layout_height="10dp" />
+    <TextView
+        android:gravity="center"
+        android:text="--  热门专题  --"
+        android:layout_width="match_parent"
+        android:layout_height="10dp" />
+</LinearLayout>
