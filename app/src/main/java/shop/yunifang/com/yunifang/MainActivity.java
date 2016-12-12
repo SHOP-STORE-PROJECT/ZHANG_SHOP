@@ -20,8 +20,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     private RadioButton rb03;
     private RadioButton rb04;
     private FragmentTransaction transaction1;
-
-    @Override
+     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);

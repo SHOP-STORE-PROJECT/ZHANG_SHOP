@@ -2,7 +2,6 @@ package shop.yunifang.com.yunifang.adapter;
 
 import android.content.Context;
 import android.graphics.Paint;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -65,7 +64,7 @@ public class GridAdapter extends BaseAdapter {
         holder.text3.setText(dataBean.get(position).shop_price+"");
         holder.text4.setText(dataBean.get(position).market_price+"");
         holder.text4.getPaint().setFlags(Paint.STRIKE_THRU_TEXT_FLAG);
-        Log.e("GirdAdapter==========",dataBean.get(position).shop_price);
+//        Log.e("GirdAdapter==========",dataBean.get(position).shop_price);
         holder.text4.setText(dataBean.get(position).market_price+"");
     }
     private void initViews(View convertView, GridViewHolder holder) {

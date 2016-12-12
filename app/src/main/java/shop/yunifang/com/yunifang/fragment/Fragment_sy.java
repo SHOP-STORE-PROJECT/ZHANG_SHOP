@@ -31,6 +31,8 @@ import shop.yunifang.com.yunifang.adapter.MyFirstAdapter;
 import shop.yunifang.com.yunifang.bean.SubBean;
 import shop.yunifang.com.yunifang.modle.Api;
 import shop.yunifang.com.yunifang.prent.MyPent;
+import shop.yunifang.com.yunifang.view.ScalePageTransformer;
+import shop.yunifang.com.yunifang.view.ZoomViewPager;
 
 /**
  * Created by ZhangDongXu on 2016/12/6.
@@ -93,7 +95,8 @@ public class Fragment_sy extends Fragment implements ViewsInterface {
         mPullRefreshListView.setOnPullEventListener(soundListener);
         View view1 = View.inflate(context, R.layout.first_viewpager, null);
         ViewPager pager = (ViewPager) view1.findViewById(R.id.first_pager);
-        ViewPager pager1 = (ViewPager) view1.findViewById(R.id.youhui_viewpager);
+        ZoomViewPager pager1 = (ZoomViewPager) view1.findViewById(R.id.youhui_viewpager);
+        pager1.setPageTransformer(true, new ScalePageTransformer());
         pager1.setAdapter(new MyYouhuiAdapter());
         pager.setAdapter(new MyViewPagerAdapter());
         //添加一个脚部

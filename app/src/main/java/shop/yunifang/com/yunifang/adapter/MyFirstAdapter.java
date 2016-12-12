@@ -151,10 +151,6 @@ public class MyFirstAdapter extends BaseAdapter {
         holder.currentPrice6 = (TextView)convertView.findViewById(R.id.current_price_text6);
     }
 
-    private void initViews() {
-
-    }
-
     public void setData(List<SubBean.SubjectBean> bean) {
 
         subjectBean.addAll(bean);

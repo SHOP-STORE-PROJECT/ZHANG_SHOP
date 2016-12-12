@@ -82,7 +82,7 @@
         android:text="--  优惠活动  --"
         android:layout_width="match_parent"
         android:layout_height="30dp" />
-        <android.support.v4.view.ViewPager
+        <shop.yunifang.com.yunifang.view.ZoomViewPager
             android:scaleType="fitXY"
             android:id="@+id/youhui_viewpager"
             android:layout_width="wrap_content"

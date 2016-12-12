@@ -3,9 +3,22 @@
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:layout_height="match_parent">
+    <TextView
+        android:background="@color/secondary_text"
+        android:layout_width="match_parent"
+        android:layout_height="1dp" />
 <GridView
+    android:layout_marginTop="10dp"
+    android:verticalSpacing="10dp"
+    android:horizontalSpacing="10dp"
     android:numColumns="2"
     android:id="@+id/footer_grid_item"
     android:layout_width="match_parent"
-    android:layout_height="8500dp"></GridView>
+    android:layout_height="850dp"></GridView>
+    <TextView
+        android:text="加载更多"
+        android:gravity="center"
+        android:id="@+id/loader_more_text"
+        android:layout_width="match_parent"
+        android:layout_height="40dp" />
 </LinearLayout>
