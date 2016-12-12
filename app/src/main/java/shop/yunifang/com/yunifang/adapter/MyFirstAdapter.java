@@ -2,14 +2,11 @@ package shop.yunifang.com.yunifang.adapter;
 
 import android.content.Context;
 import android.graphics.Paint;
-import android.support.v4.view.PagerAdapter;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import com.nostra13.universalimageloader.core.ImageLoader;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -187,29 +184,29 @@ public class MyFirstAdapter extends BaseAdapter {
         TextView priceText2,priceText1,priceText3,priceText4,priceText5,priceText6;
         TextView currentPrice1,currentPrice2,currentPrice3,currentPrice4,currentPrice5,currentPrice6;
     }
-    public class PullAdapter extends PagerAdapter{
-
-        @Override
-        public int getCount() {
-            return 0;
-        }
-
-        @Override
-        public boolean isViewFromObject(View view, Object object) {
-            return false;
-        }
-
-        @Override
-        public Object instantiateItem(ViewGroup container, int position) {
-            View view = View.inflate(context,R.layout.viewpager_image_layout,null);
-            ImageView view1 = (ImageView) view.findViewById(R.id.head_image);
-            ImageLoader.getInstance().displayImage(subjectBean.get(position).goodsList.get(position).goods_img,view1);
-            container.addView(view);
-            return view;
-        }
-        @Override
-        public void destroyItem(ViewGroup container, int position, Object object) {
-            container.removeView((View)object);
-        }
-    }
+//    public class PullAdapter extends PagerAdapter{
+//
+//        @Override
+//        public int getCount() {
+//            return 0;
+//        }
+//
+//        @Override
+//        public boolean isViewFromObject(View view, Object object) {
+//            return false;
+//        }
+//
+//        @Override
+//        public Object instantiateItem(ViewGroup container, int position) {
+//            View view = View.inflate(context,R.layout.viewpager_image_layout,null);
+//            ImageView view1 = (ImageView) view.findViewById(R.id.head_image);
+////            ImageLoader.getInstance().displayImage(subjectBean.get(position).goodsList.get(position).goods_img,view1);
+//            container.addView(view);
+//            return view;
+//        }
+//        @Override
+//        public void destroyItem(ViewGroup container, int position, Object object) {
+//            container.removeView((View)object);
+//        }
+//    }
 }

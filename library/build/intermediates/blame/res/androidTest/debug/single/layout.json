@@ -1,11 +1,19 @@
 [
     {
+        "merged": "E:\\YuNifFang\\YuNiFang2\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\pull_to_refresh_header_vertical.xml",
+        "source": "E:\\YuNifFang\\YuNiFang2\\library\\build\\intermediates\\bundles\\debug\\res\\layout\\pull_to_refresh_header_vertical.xml"
+    },
+    {
         "merged": "C:\\Users\\Administrator\\Desktop\\ZHANG_SHOP\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\pull_to_refresh_header_vertical.xml",
         "source": "C:\\Users\\Administrator\\Desktop\\ZHANG_SHOP\\library\\build\\intermediates\\bundles\\debug\\res\\layout\\pull_to_refresh_header_vertical.xml"
     },
     {
         "merged": "E:\\ZHANG_SHOP\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\pull_to_refresh_header_horizontal.xml",
         "source": "E:\\ZHANG_SHOP\\library\\build\\intermediates\\bundles\\debug\\res\\layout\\pull_to_refresh_header_horizontal.xml"
+    },
+    {
+        "merged": "E:\\YuNifFang\\YuNiFang2\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\pull_to_refresh_header_horizontal.xml",
+        "source": "E:\\YuNifFang\\YuNiFang2\\library\\build\\intermediates\\bundles\\debug\\res\\layout\\pull_to_refresh_header_horizontal.xml"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\ZHANG_SHOP\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\pull_to_refresh_header_horizontal.xml",
