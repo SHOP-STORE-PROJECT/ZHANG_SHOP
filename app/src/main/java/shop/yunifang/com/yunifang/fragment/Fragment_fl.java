@@ -7,23 +7,24 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.text.format.DateUtils;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import com.handmark.pulltorefresh.library.extras.SoundPullEventListener;
 
-import java.util.Arrays;
-import java.util.LinkedList;
+import java.util.List;
 
 import shop.yunifang.com.yunifang.R;
 import shop.yunifang.com.yunifang.activity.views.ViewsInterface;
-import shop.yunifang.com.yunifang.bean.SubBean;
+import shop.yunifang.com.yunifang.adapter.CateAdapter;
+import shop.yunifang.com.yunifang.bean.CateGoryBean;
 import shop.yunifang.com.yunifang.modle.Api;
 import shop.yunifang.com.yunifang.prent.MyPent;
 
@@ -32,16 +33,13 @@ import shop.yunifang.com.yunifang.prent.MyPent;
  */
 public class Fragment_fl extends Fragment implements ViewsInterface{
 
-    private View view;
     private PullToRefreshListView mPullRefreshListView;
-    private LinkedList<String> mListItems;
-    static final int MENU_MANUAL_REFRESH = 0;
-    static final int MENU_DISABLE_SCROLL = 1;
-    static final int MENU_SET_MODE = 2;
-    static final int MENU_DEMO = 3;
-    private ArrayAdapter<String> mAdapter;
     private MyPent pent;
     private Context context;
+    private ListView actualListView;
+    private GridView mView;
+    private CateAdapter adapter;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,10 +65,8 @@ public class Fragment_fl extends Fragment implements ViewsInterface{
             public void onRefresh(PullToRefreshBase<ListView> refreshView) {
                 String label = DateUtils.formatDateTime(getActivity(), System.currentTimeMillis(),
                         DateUtils.FORMAT_SHOW_TIME | DateUtils.FORMAT_SHOW_DATE | DateUtils.FORMAT_ABBREV_ALL);
-
                 // Update the LastUpdatedLabel
                 refreshView.getLoadingLayoutProxy().setLastUpdatedLabel(label);
-
                 // Do work to refresh the list here.
                 new Fragment_fl.GetDataTask().execute();
             }
@@ -85,34 +81,36 @@ public class Fragment_fl extends Fragment implements ViewsInterface{
             }
         });
 
-        ListView actualListView = mPullRefreshListView.getRefreshableView();
+        actualListView = mPullRefreshListView.getRefreshableView();
 
         // Need to use the Actual ListView when registering for Context Menu
         registerForContextMenu(actualListView);
-
-        mListItems = new LinkedList<String>();
-        mListItems.addAll(Arrays.asList(mStrings));
-//适配器
-        mAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, mListItems);
-
         /**
          * Add Sound Event Listener
          */
         SoundPullEventListener<ListView> soundListener = new SoundPullEventListener<ListView>(getActivity());
-//        soundListener.addSoundEvent(PullToRefreshBase.State.PULL_TO_REFRESH, R.raw.pull_event);
-//        soundListener.addSoundEvent(PullToRefreshBase.State.RESET, R.raw.reset_sound);
-//        soundListener.addSoundEvent(State.REFRESHING, R.raw.refreshing_sound);
         mPullRefreshListView.setOnPullEventListener(soundListener);
-
-        // You can also just use setListAdapter(mAdapter) or
-        // mPullRefreshListView.setAdapter(mAdapter)
-        actualListView.setAdapter(mAdapter);
+//        actualListView.addFooterView(View);
+        View view = View.inflate(context,R.layout.cate_header_layout,null);
+//// TODO: 2016/12/12 头部点击事件 
+        View view1 = View.inflate(context,R.layout.cate_footer_layout,null);
+        mView = (GridView) view1.findViewById(R.id.footer_grid_item_cate);
+        //添加addHeaderView
+        actualListView.addHeaderView(view);
+        //添加addFooterView
+        actualListView.addFooterView(view1);
+        actualListView.setAdapter(new ArrayAdapter<String>(context,android.R.layout.simple_expandable_list_item_1));
+//        actualListView.setAdapter(mAdapter);
     }
+    //解析网络数据添加显示
     @Override
-    public void successGet(SubBean datas) {
-
+    public void successGet(String response) {
+        CateGoryBean bean = new Gson().fromJson(response,CateGoryBean.class);
+        List<CateGoryBean.GoodsBriefBean>briefBeen = bean.data.goodsBrief;
+        adapter = new CateAdapter(context);
+        adapter.setData(briefBeen);
+        mView.setAdapter(adapter);
     }
-
     @Override
     public void failedGet(String errCode) {
 
@@ -123,43 +121,18 @@ public class Fragment_fl extends Fragment implements ViewsInterface{
         protected String[] doInBackground(Void... params) {
             // Simulates a background job.
             try {
-                Thread.sleep(4000);
+                Thread.sleep(2000);
             } catch (InterruptedException e) {
             }
-            return mStrings;
+            return null;
         }
         @Override
         protected void onPostExecute(String[] result) {
-            mListItems.addFirst("Added after refresh...");
-            mAdapter.notifyDataSetChanged();
+            adapter.notifyDataSetChanged();
 
             // Call onRefreshComplete when the list has been refreshed.
             mPullRefreshListView.onRefreshComplete();
-
             super.onPostExecute(result);
         }
     }
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-
-        switch (item.getItemId()) {
-            case MENU_MANUAL_REFRESH:
-                new Fragment_fl.GetDataTask().execute();
-                mPullRefreshListView.setRefreshing(false);
-                break;
-            case MENU_DISABLE_SCROLL:
-                mPullRefreshListView.setScrollingWhileRefreshingEnabled(!mPullRefreshListView
-                        .isScrollingWhileRefreshingEnabled());
-                break;
-            case MENU_DEMO:
-                mPullRefreshListView.demo();
-                break;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-    private String[] mStrings = { "Abbaye de Belloc", "Abbaye du Mont des Cats", "Abertam", "Abondance", "Ackawi",
-            "Acorn", "Adelost", "Affidelice au Chablis", "Afuega'l Pitu", "Airag", "Airedale", "Aisy Cendre",
-            "Allgauer Emmentaler", "Abbaye de Belloc", "Abbaye du Mont des Cats", "Abertam", "Abondance", "Ackawi",
-            "Acorn", "Adelost", "Affidelice au Chablis", "Afuega'l Pitu", "Airag", "Airedale", "Aisy Cendre",
-            "Allgauer Emmentaler" };
 }

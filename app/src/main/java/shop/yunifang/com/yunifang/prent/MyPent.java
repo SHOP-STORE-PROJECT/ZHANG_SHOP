@@ -3,10 +3,8 @@ package shop.yunifang.com.yunifang.prent;
 import android.content.Context;
 
 import com.android.volley.VolleyError;
-import com.google.gson.Gson;
 
 import shop.yunifang.com.yunifang.activity.views.ViewsInterface;
-import shop.yunifang.com.yunifang.bean.SubBean;
 import shop.yunifang.com.yunifang.fragment.Fragment_fl;
 import shop.yunifang.com.yunifang.fragment.Fragment_sy;
 import shop.yunifang.com.yunifang.modle.CallBack;
@@ -30,8 +28,10 @@ public class MyPent {
 //                String msg = bean.msg;
 //                if(first==0||first ==1){
 //                    Log.e("MyPent==",response+"--------MyPent");
-                    SubBean subBean = new Gson().fromJson(response,SubBean.class);
-                    mAnInterface.successGet(subBean);
+
+
+                    mAnInterface.successGet(response);
+
 //                }
             }
             @Override

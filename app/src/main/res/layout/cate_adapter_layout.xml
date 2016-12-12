@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/grid_view_item"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp">
+        <ImageView
+            android:id="@+id/footer_image_cate1"
+            android:layout_width="match_parent"
+            android:layout_height="150dp" />
+        <ImageView
+            android:id="@+id/footer_image_cate2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+    <TextView
+        android:textSize="15sp"
+        android:id="@+id/footer_text_cate1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" /> <TextView
+    android:id="@+id/footer_text_cate2"
+    android:layout_width="match_parent"
+    android:layout_height="20dp" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_weight="3"
+            android:textSize="20sp"
+            android:textColor="@color/colorAccent"
+            android:id="@+id/footer_text_cate3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" /> <TextView
+        android:id="@+id/footer_text_cate4"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    </LinearLayout>
+</LinearLayout>

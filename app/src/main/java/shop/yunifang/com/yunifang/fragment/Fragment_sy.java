@@ -1,6 +1,7 @@
 package shop.yunifang.com.yunifang.fragment;
 
 import android.content.Context;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -18,6 +19,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import com.handmark.pulltorefresh.library.extras.SoundPullEventListener;
@@ -47,6 +49,7 @@ public class Fragment_sy extends Fragment implements ViewsInterface {
     private GridView gridView;
     private View view2;
 
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -68,7 +71,6 @@ public class Fragment_sy extends Fragment implements ViewsInterface {
         // Need to use the Actual ListView when registering for Context Menu
         registerForContextMenu(mListView1);
     }
-
     private void refreshFragment() {
         mPullRefreshListView.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener<ListView>() {
             @Override
@@ -77,7 +79,8 @@ public class Fragment_sy extends Fragment implements ViewsInterface {
                         DateUtils.FORMAT_SHOW_TIME | DateUtils.FORMAT_SHOW_DATE | DateUtils.FORMAT_ABBREV_ALL);
                 refreshView.getLoadingLayoutProxy().setLastUpdatedLabel(label);
                 //刷新完成
-                mPullRefreshListView.onRefreshComplete();
+                new Fragment_sy.GetDataTask().execute();
+
             }
         });
         // Add an end-of-list listener
@@ -105,9 +108,10 @@ public class Fragment_sy extends Fragment implements ViewsInterface {
         mListView1.addFooterView(view2);
         mListView1.addHeaderView(view1);
     }
-
+    //解析网络数据添加显示
     @Override
-    public void successGet(SubBean datas) {
+    public void successGet(String response) {
+        SubBean datas = new Gson().fromJson(response, SubBean.class);
         List<SubBean.DefaultGoodsListBean> defaultGoodsListBeen = datas.data.defaultGoodsList;
         GridAdapter gridAdapter = new GridAdapter(context);
         gridAdapter.setData(defaultGoodsListBeen);
@@ -121,7 +125,6 @@ public class Fragment_sy extends Fragment implements ViewsInterface {
 //刷新完成
 //        mPullRefreshListView.onRefreshComplete();
     }
-
     @Override
     public void failedGet(String errCode) {
         Log.e("首页", "首页数据请求失败");
@@ -195,7 +198,28 @@ public class Fragment_sy extends Fragment implements ViewsInterface {
             return view == object;
         }
     }
+    private class GetDataTask extends AsyncTask<Void, Void, String[]> {
 
+        @Override
+        protected String[] doInBackground(Void... params) {
+            // Simulates a background job.
+            try {
+                Thread.sleep(4000);
+            } catch (InterruptedException e) {
+            }
+            return null;
+        }
+        @Override
+        protected void onPostExecute(String[] result) {
+
+            adapter.notifyDataSetChanged();
+
+            // Call onRefreshComplete when the list has been refreshed.
+            mPullRefreshListView.onRefreshComplete();
+
+            super.onPostExecute(result);
+        }
+    }
 //    //给脚部添加数据
 //    private void footerAddDatas(List<SubBean.DefaultGoodsListBean> defaultGoodsListBeen) {
 ////        initFooterViews(defaultGoodsListBeen);

@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="240dp">
+        <!--大图-->
+        <ImageView
+            android:layout_weight="6"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="5dp"
+            android:scaleType="fitXY"
+            android:src="@mipmap/classify_facial_mask"
+            android:id="@+id/cate_item_image1"
+            android:layout_width="match_parent"
+            android:layout_height="220dp" />
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_weight="4"
+            android:layout_width="match_parent"
+            android:layout_height="240dp">
+            <!--第一个界面-->
+        <LinearLayout
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="70dp">
+            <ImageView
+                android:layout_marginRight="5dp"
+                android:id="@+id/small_image1"
+                android:layout_weight="1"
+                android:scaleType="fitXY"
+                android:src="@mipmap/classify_emollient_water"
+                android:layout_width="match_parent"
+                android:layout_height="70dp" />    <ImageView
+                android:layout_weight="1"
+            android:layout_marginRight="5dp"
+                android:id="@+id/small_image2"
+                android:scaleType="fitXY"
+                android:src="@mipmap/classify_body_lotion"
+                android:layout_width="match_parent"
+                android:layout_height="70dp" />
+        </LinearLayout>
+            <!--第二个界面-->
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="5dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="70dp">
+                <ImageView
+                    android:layout_marginRight="5dp"
+                    android:scaleType="fitXY"
+                    android:id="@+id/small_image3"
+                    android:layout_weight="1"
+                    android:src="@mipmap/classify_facial_cleanser"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp" />    <ImageView
+                android:layout_weight="1"
+                android:scaleType="fitXY"
+                android:id="@+id/small_image4"
+                android:src="@mipmap/classify_other"
+                android:layout_width="match_parent"
+                android:layout_height="70dp" />
+            </LinearLayout>
+            <!--第三个界面-->
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="5dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="70dp">
+                <ImageView
+                    android:layout_marginRight="10dp"
+                    android:scaleType="fitXY"
+                    android:id="@+id/small_image5"
+                    android:layout_weight="1"
+                    android:src="@mipmap/classify_kit"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+    <TextView
+        android:layout_marginTop="20dp"
+        android:background="@color/secondary_text"
+        android:layout_width="match_parent"
+        android:layout_height="10dp" />
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:text="--  按功效  --"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="40dp" />        <TextView
+            android:text="美丽从选对产品开始"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_marginLeft="10dp"
+                android:src="@mipmap/classify_hydrating"
+                android:layout_weight="1"
+                android:id="@+id/gx_image1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />   <ImageView
+                android:src="@mipmap/classify_soothing"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1"
+                android:id="@+id/gx_image2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />   <ImageView
+                android:src="@mipmap/classify_control_oil"
+            android:layout_marginLeft="5dp"
+                android:layout_weight="1"
+                android:id="@+id/gx_image3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />   <ImageView
+                android:src="@mipmap/classify_whitening"
+            android:layout_marginLeft="5dp"
+                android:layout_weight="1"
+                android:id="@+id/gx_image4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" /> <ImageView
+                android:src="@mipmap/classify_firming"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:id="@+id/gx_image5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </LinearLayout>
+    <TextView
+        android:layout_marginTop="10dp"
+        android:background="@color/secondary_text"
+        android:layout_width="match_parent"
+        android:layout_height="10dp" />
+    <TextView
+        android:text="--  按肤质  --"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="40dp" />        <TextView
+    android:text="适合自己的才是最好"
+    android:gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" />
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="260dp">
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/fz_text1"
+                android:text="#混合性肤质#"
+                android:gravity="center"
+                android:background="#dedeb9"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="80dp" />   <TextView
+                android:id="@+id/fz_text2"
+                android:text="#混合性肤质#"
+                android:gravity="center"
+            android:layout_marginRight="10dp"
+                android:background="#eed4c2"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="80dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/fz_text3"
+                android:text="#混合性肤质#"
+                android:gravity="center"
+                android:background="#d4d7f7"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="80dp" />   <TextView
+            android:id="@+id/fz_text4"
+            android:text="#混合性肤质#"
+            android:layout_marginRight="10dp"
+            android:gravity="center"
+            android:background="#d1e1c3"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="80dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/fz_text5"
+                android:text="#混合性肤质#"
+                android:gravity="center"
+                android:background="#f1d2cb"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="80dp" />   <TextView
+            android:id="@+id/fz_text6"
+            android:text="#混合性肤质#"
+            android:gravity="center"
+            android:background="#bff1ec"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="8dp"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="80dp" />
+        </LinearLayout>
+    </LinearLayout>
+    <TextView
+        android:text="--  明星产品  --"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="80dp" />
+</LinearLayout>
