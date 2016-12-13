@@ -58,7 +58,7 @@ public class ZhuanAdapter extends BaseAdapter {
 
     private void showImageAndText(ZhViewHolder holder, int position) {
         Utils.showImage(dataBean.get(position).goods_img,holder.imageView1);
-        Utils.showImage(dataBean.get(position).watermarkUrl,holder.imageView2);
+//        Utils.showImage(dataBean.get(position).watermarkUrl,holder.imageView2);
         holder.text1.setText(dataBean.get(position).goods_name);
         holder.text2.setText(dataBean.get(position).goods_name);
         holder.text3.setText(dataBean.get(position).shop_price+"");
