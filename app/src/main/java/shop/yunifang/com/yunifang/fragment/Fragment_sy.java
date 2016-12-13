@@ -1,6 +1,7 @@
 package shop.yunifang.com.yunifang.fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
@@ -27,12 +28,14 @@ import com.handmark.pulltorefresh.library.extras.SoundPullEventListener;
 import java.util.List;
 
 import shop.yunifang.com.yunifang.R;
+import shop.yunifang.com.yunifang.activity.WebActivity;
 import shop.yunifang.com.yunifang.activity.views.ViewsInterface;
 import shop.yunifang.com.yunifang.adapter.GridAdapter;
 import shop.yunifang.com.yunifang.adapter.MyFirstAdapter;
 import shop.yunifang.com.yunifang.bean.SubBean;
 import shop.yunifang.com.yunifang.modle.Api;
 import shop.yunifang.com.yunifang.prent.MyPent;
+import shop.yunifang.com.yunifang.utils.Utils;
 import shop.yunifang.com.yunifang.view.ScalePageTransformer;
 import shop.yunifang.com.yunifang.view.ZoomViewPager;
 
@@ -49,6 +52,20 @@ public class Fragment_sy extends Fragment implements ViewsInterface {
     private GridView gridView;
     private View view2;
 
+    private Handler pagerhHandler = new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            int current = pager.getCurrentItem();
+            if(current != -1){
+                current++;
+                pager.setCurrentItem(current);
+                pagerhHandler.sendEmptyMessageDelayed(current,2000);
+            }
+        }
+    };
+    private ViewPager pager;
+    private View view1;
+    private List<SubBean.Ad1Bean> ad1Been;
 
     @Nullable
     @Override
@@ -59,7 +76,6 @@ public class Fragment_sy extends Fragment implements ViewsInterface {
         refreshFragment();
         return view;
     }
-
     private void initViews() {
         context = getActivity();
         pent = new MyPent();
@@ -96,22 +112,33 @@ public class Fragment_sy extends Fragment implements ViewsInterface {
          */
         SoundPullEventListener<ListView> soundListener = new SoundPullEventListener<ListView>(getActivity());
         mPullRefreshListView.setOnPullEventListener(soundListener);
-        View view1 = View.inflate(context, R.layout.first_viewpager, null);
-        ViewPager pager = (ViewPager) view1.findViewById(R.id.first_pager);
+        view1 = View.inflate(context, R.layout.first_viewpager, null);
+
+        pager = (ViewPager) view1.findViewById(R.id.first_pager);
+
         ZoomViewPager pager1 = (ZoomViewPager) view1.findViewById(R.id.youhui_viewpager);
         pager1.setPageTransformer(true, new ScalePageTransformer());
         pager1.setAdapter(new MyYouhuiAdapter());
-        pager.setAdapter(new MyViewPagerAdapter());
+        MyViewPagerAdapter   pagerAdapter = new MyViewPagerAdapter();
+        pager.setAdapter(pagerAdapter);
         //添加一个脚部
         view2 = View.inflate(context, R.layout.footer_view_layout, null);
         gridView = (GridView) view2.findViewById(R.id.footer_grid_item);
         mListView1.addFooterView(view2);
         mListView1.addHeaderView(view1);
+        //使用Handler消息机制实现无限轮播
+        pagerhHandler.sendEmptyMessage(0);
     }
     //解析网络数据添加显示
     @Override
     public void successGet(String response) {
+
         SubBean datas = new Gson().fromJson(response, SubBean.class);
+        //首页头Viewpager数据
+        ad1Been = datas.data.ad1;
+        //热门条目点击事件
+        List<SubBean.Ad5Bean>ad5Been  = datas.data.ad5;
+        showView1(ad5Been);
         List<SubBean.DefaultGoodsListBean> defaultGoodsListBeen = datas.data.defaultGoodsList;
         GridAdapter gridAdapter = new GridAdapter(context);
         gridAdapter.setData(defaultGoodsListBeen);
@@ -124,6 +151,25 @@ public class Fragment_sy extends Fragment implements ViewsInterface {
 
 //刷新完成
 //        mPullRefreshListView.onRefreshComplete();
+    }
+
+    private void showView1(List<SubBean.Ad5Bean> ad5Been) {
+        ImageView year_happy1 = (ImageView) view1.findViewById(R.id.year_happy1);
+        Utils.showImage(ad5Been.get(0).image,year_happy1);
+        ImageView year_happy2 = (ImageView) view1.findViewById(R.id.year_happy2);
+        Utils.showImage(ad5Been.get(1).image,year_happy2);
+        ImageView year_happy3 = (ImageView) view1.findViewById(R.id.year_happy3);
+        Utils.showImage(ad5Been.get(2).image,year_happy3);
+        ImageView year_happy4 = (ImageView) view1.findViewById(R.id.year_happy4);
+        Utils.showImage(ad5Been.get(3).image,year_happy4);
+        ImageView year_happy5 = (ImageView) view1.findViewById(R.id.year_happy5);
+        Utils.showImage(ad5Been.get(4).image,year_happy5);
+        ImageView year_happy6 = (ImageView) view1.findViewById(R.id.year_happy6);
+        Utils.showImage(ad5Been.get(5).image,year_happy6);
+        ImageView year_happy7 = (ImageView) view1.findViewById(R.id.year_happy7);
+        Utils.showImage(ad5Been.get(6).image,year_happy7);
+        ImageView year_happy8 = (ImageView) view1.findViewById(R.id.year_happy8);
+        Utils.showImage(ad5Been.get(7).image,year_happy8);
     }
     @Override
     public void failedGet(String errCode) {
@@ -141,19 +187,24 @@ public class Fragment_sy extends Fragment implements ViewsInterface {
     };
 
     class MyViewPagerAdapter extends PagerAdapter {
-        int[] sDrawables = {R.drawable.headview_pager1, R.drawable.headview_pager2, R.drawable.headview_pager3,
-                R.drawable.headview_pager4, R.drawable.headview_pager5, R.drawable.headview_pager6, R.drawable.headview_pager7, R.drawable.headview_pager8};
 
         @Override
         public int getCount() {
-            return sDrawables.length;
+            return Integer.MAX_VALUE;
         }
 
         @Override
-        public View instantiateItem(ViewGroup container, int position) {
+        public View instantiateItem(final ViewGroup container, final int position) {
             ImageView imageView = new ImageView(container.getContext());
-            imageView.setImageResource(sDrawables[position]);
-
+            Utils.showImage(ad1Been.get(position%ad1Been.size()).image,imageView);
+            imageView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(context, WebActivity.class);
+                    intent.putExtra("header",ad1Been.get(position%ad1Been.size()).ad_type_dynamic_data);
+                    startActivity(intent);
+                }
+            });
             // Now just add ImageView to ViewPager and return it
             container.addView(imageView, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
             return imageView;
@@ -176,13 +227,13 @@ public class Fragment_sy extends Fragment implements ViewsInterface {
 
         @Override
         public int getCount() {
-            return sDrawables.length;
+            return Integer.MAX_VALUE;
         }
 
         @Override
         public View instantiateItem(ViewGroup container, int position) {
             ImageView imageView = new ImageView(container.getContext());
-            imageView.setImageResource(sDrawables[position]);
+            imageView.setImageResource(sDrawables[position%sDrawables.length]);
             // Now just add ImageView to ViewPager and return it
             container.addView(imageView, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
             return imageView;
