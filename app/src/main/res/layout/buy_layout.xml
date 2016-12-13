@@ -16,7 +16,7 @@
             android:src="@mipmap/back_normala"
             android:layout_gravity="top"
             android:layout_width="match_parent"
-            android:layout_height="35dp" />
+            android:layout_height="25dp" />
         <TextView
             android:gravity="center"
             android:textSize="20sp"
@@ -29,21 +29,15 @@
             android:layout_weight="2"
             android:src="@drawable/goods_shopping_cart"
             android:layout_width="match_parent"
-            android:layout_height="35dp" />
+            android:layout_height="25dp" />
         <ImageView
             android:id="@+id/share_body"
             android:layout_weight="2"
             android:src="@drawable/share_normal"
             android:layout_width="match_parent"
-            android:layout_height="35dp" />
+            android:layout_height="25dp" />
     </LinearLayout>
-<LinearLayout
-    android:orientation="vertical"
-    android:layout_weight="10"
-    android:layout_width="match_parent"
-    android:layout_height="0dp">
-    
-</LinearLayout>
+
     <!--底部加入購物車-->
         <LinearLayout
             android:layout_weight="1"
