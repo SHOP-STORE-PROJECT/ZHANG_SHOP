@@ -131,7 +131,6 @@ public class Fragment_sy extends Fragment implements ViewsInterface,View.OnClick
         mListView1.addHeaderView(view1);
         //使用Handler消息机制实现无限轮播
         pagerhHandler.sendEmptyMessage(0);
-
 //        mListView1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 //            @Override
 //            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -140,12 +139,6 @@ public class Fragment_sy extends Fragment implements ViewsInterface,View.OnClick
 ////                intent.putExtra("subject",subjectBeen.get(position));
 ////                startActivity(intent);
 //                Toast.makeText(context,"专题页面跳转  ====="+position,Toast.LENGTH_SHORT).show();
-//            }
-//        });
-//        mPullRefreshListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                Toast.makeText(context,"这是条目"+position,Toast.LENGTH_SHORT).show();
 //            }
 //        });
     }
@@ -166,12 +159,6 @@ public class Fragment_sy extends Fragment implements ViewsInterface,View.OnClick
         GridAdapter gridAdapter = new GridAdapter(context);
         gridAdapter.setData(defaultGoodsListBeen);
         gridView.setAdapter(gridAdapter);
-//        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                Toast.makeText(context,"这是条目"+position,Toast.LENGTH_SHORT).show();
-//            }
-//        });
         List<SubBean.SubjectBean> subjectsBeen = datas.data.subjects;
         Message msg = Message.obtain();
         msg.obj = subjectsBeen;
@@ -196,19 +183,19 @@ public class Fragment_sy extends Fragment implements ViewsInterface,View.OnClick
         year_happy3.setOnClickListener(this);
         ImageView year_happy4 = (ImageView) view1.findViewById(R.id.year_happy4);
         Utils.showImage(ad5Been.get(3).image,year_happy4);
-//        year_happy4.setOnClickListener(this);
-//        ImageView year_happy5 = (ImageView) view1.findViewById(R.id.year_happy5);
-//        Utils.showImage(ad5Been.get(4).image,year_happy5);
-//        year_happy5.setOnClickListener(this);
-//        ImageView year_happy6 = (ImageView) view1.findViewById(R.id.year_happy6);
-//        Utils.showImage(ad5Been.get(5).image,year_happy6);
-//        year_happy6.setOnClickListener(this);
-//        ImageView year_happy7 = (ImageView) view1.findViewById(R.id.year_happy7);
-//        Utils.showImage(ad5Been.get(6).image,year_happy7);
-//        year_happy7.setOnClickListener(this);
-//        ImageView year_happy8 = (ImageView) view1.findViewById(R.id.year_happy8);
-//        Utils.showImage(ad5Been.get(7).image,year_happy8);
-//        year_happy8.setOnClickListener(this);
+        year_happy4.setOnClickListener(this);
+        ImageView year_happy5 = (ImageView) view1.findViewById(R.id.year_happy5);
+        Utils.showImage(ad5Been.get(4).image,year_happy5);
+        year_happy5.setOnClickListener(this);
+        ImageView year_happy6 = (ImageView) view1.findViewById(R.id.year_happy6);
+        Utils.showImage(ad5Been.get(5).image,year_happy6);
+        year_happy6.setOnClickListener(this);
+        ImageView year_happy7 = (ImageView) view1.findViewById(R.id.year_happy7);
+        Utils.showImage(ad5Been.get(6).image,year_happy7);
+        year_happy7.setOnClickListener(this);
+        ImageView year_happy8 = (ImageView) view1.findViewById(R.id.year_happy8);
+        Utils.showImage(ad5Been.get(7).image,year_happy8);
+        year_happy8.setOnClickListener(this);
     }
     @Override
     public void failedGet(String errCode) {
@@ -218,7 +205,7 @@ public class Fragment_sy extends Fragment implements ViewsInterface,View.OnClick
     protected Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
-            subjectBeen = new ArrayList<>();
+            subjectBeen = new ArrayList<SubBean.SubjectBean>();
             List<SubBean.SubjectBean> bean = (List<SubBean.SubjectBean>) msg.obj;
             subjectBeen.addAll(bean);
             adapter = new MyFirstAdapter(context);
@@ -231,6 +218,9 @@ public class Fragment_sy extends Fragment implements ViewsInterface,View.OnClick
     public void onClick(View v) {
         Intent intent  = new Intent(context,WebActivity.class);
         switch(v.getId()){
+            case R.id.year_happy8:
+                intent.putExtra("year",7);
+                break;
             case R.id.year_happy1:
                 intent.putExtra("year",0);
                 break;
@@ -242,6 +232,15 @@ public class Fragment_sy extends Fragment implements ViewsInterface,View.OnClick
                 break;
             case R.id.year_happy4:
                 intent.putExtra("year",3);
+                break;
+            case R.id.year_happy5:
+                intent.putExtra("year",4);
+                break;
+            case R.id.year_happy6:
+                intent.putExtra("year",5);
+                break;
+            case R.id.year_happy7:
+                intent.putExtra("year",6);
                 break;
         }
         intent.putExtra("ad5bean",myBeen);

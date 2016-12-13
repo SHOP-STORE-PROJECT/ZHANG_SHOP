@@ -1,8 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="shop.yunifang.com.yunifang">
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <!-- 短信权限 -->
+
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <!-- ============================================================================= -->
     <application
         android:name=".application.MyApp"
         android:allowBackup="true"
@@ -13,17 +29,10 @@
         <activity android:name=".activity.GuideActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.WebActivity"/>
-        <activity android:name=".MainActivity"/>
-        <activity android:name=".activity.IntoActivity"/>
-        <activity android:name=".activity.TimeActivity"/>
-        <activity android:name=".activity.LoginMainActivity"/>
-        <activity android:name=".activity.ZhuanActivity"/>
-        <activity android:name=".activity.FaceActivity"/>
-        <activity android:name=".activity.BuyActivity"/>
         <activity android:name=".activity.WebActivity" />
         <activity android:name=".MainActivity" />
         <activity android:name=".activity.IntoActivity" />
