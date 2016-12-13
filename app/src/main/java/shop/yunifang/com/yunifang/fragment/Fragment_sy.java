@@ -25,6 +25,7 @@ import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import com.handmark.pulltorefresh.library.extras.SoundPullEventListener;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import shop.yunifang.com.yunifang.R;
@@ -42,7 +43,7 @@ import shop.yunifang.com.yunifang.view.ZoomViewPager;
 /**
  * Created by ZhangDongXu on 2016/12/6.
  */
-public class Fragment_sy extends Fragment implements ViewsInterface {
+public class Fragment_sy extends Fragment implements ViewsInterface,View.OnClickListener {
     private Context context;
     private View view;
     private PullToRefreshListView mPullRefreshListView;
@@ -51,7 +52,7 @@ public class Fragment_sy extends Fragment implements ViewsInterface {
     private ListView mListView1;
     private GridView gridView;
     private View view2;
-
+    private    List<SubBean.SubjectBean> subjectBeen;
     private Handler pagerhHandler = new Handler(){
         @Override
         public void handleMessage(Message msg) {
@@ -66,6 +67,8 @@ public class Fragment_sy extends Fragment implements ViewsInterface {
     private ViewPager pager;
     private View view1;
     private List<SubBean.Ad1Bean> ad1Been;
+    private List<SubBean.ActivityInfoListBean> activityInfoListBeen;
+    private ArrayList<SubBean.Ad5Bean> myBeen;
 
     @Nullable
     @Override
@@ -128,6 +131,16 @@ public class Fragment_sy extends Fragment implements ViewsInterface {
         mListView1.addHeaderView(view1);
         //使用Handler消息机制实现无限轮播
         pagerhHandler.sendEmptyMessage(0);
+//        mListView1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                //// TODO: 2016/12/13 专题页面跳转
+////                Intent intent = new Intent(context, ZhuanActivity.class);
+////                intent.putExtra("subject",subjectBeen.get(position));
+////                startActivity(intent);
+//                Toast.makeText(context,"专题页面跳转  ====="+position,Toast.LENGTH_SHORT).show();
+//            }
+//        });
     }
     //解析网络数据添加显示
     @Override
@@ -137,8 +150,11 @@ public class Fragment_sy extends Fragment implements ViewsInterface {
         //首页头Viewpager数据
         ad1Been = datas.data.ad1;
         //热门条目点击事件
-        List<SubBean.Ad5Bean>ad5Been  = datas.data.ad5;
+        List<SubBean.Ad5Bean>ad5Been = datas.data.ad5;
         showView1(ad5Been);
+        //activityInfoList
+        activityInfoListBeen = datas.data.activityInfo.activityInfoList;
+
         List<SubBean.DefaultGoodsListBean> defaultGoodsListBeen = datas.data.defaultGoodsList;
         GridAdapter gridAdapter = new GridAdapter(context);
         gridAdapter.setData(defaultGoodsListBeen);
@@ -154,22 +170,32 @@ public class Fragment_sy extends Fragment implements ViewsInterface {
     }
 
     private void showView1(List<SubBean.Ad5Bean> ad5Been) {
+        myBeen = new ArrayList<>();
+        myBeen.addAll(ad5Been);
         ImageView year_happy1 = (ImageView) view1.findViewById(R.id.year_happy1);
         Utils.showImage(ad5Been.get(0).image,year_happy1);
+        year_happy1.setOnClickListener(this);
         ImageView year_happy2 = (ImageView) view1.findViewById(R.id.year_happy2);
         Utils.showImage(ad5Been.get(1).image,year_happy2);
+        year_happy2.setOnClickListener(this);
         ImageView year_happy3 = (ImageView) view1.findViewById(R.id.year_happy3);
         Utils.showImage(ad5Been.get(2).image,year_happy3);
+        year_happy3.setOnClickListener(this);
         ImageView year_happy4 = (ImageView) view1.findViewById(R.id.year_happy4);
         Utils.showImage(ad5Been.get(3).image,year_happy4);
+        year_happy4.setOnClickListener(this);
         ImageView year_happy5 = (ImageView) view1.findViewById(R.id.year_happy5);
         Utils.showImage(ad5Been.get(4).image,year_happy5);
+        year_happy5.setOnClickListener(this);
         ImageView year_happy6 = (ImageView) view1.findViewById(R.id.year_happy6);
         Utils.showImage(ad5Been.get(5).image,year_happy6);
+        year_happy6.setOnClickListener(this);
         ImageView year_happy7 = (ImageView) view1.findViewById(R.id.year_happy7);
         Utils.showImage(ad5Been.get(6).image,year_happy7);
+        year_happy7.setOnClickListener(this);
         ImageView year_happy8 = (ImageView) view1.findViewById(R.id.year_happy8);
         Utils.showImage(ad5Been.get(7).image,year_happy8);
+        year_happy8.setOnClickListener(this);
     }
     @Override
     public void failedGet(String errCode) {
@@ -179,12 +205,47 @@ public class Fragment_sy extends Fragment implements ViewsInterface {
     protected Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
+            subjectBeen = new ArrayList<>();
             List<SubBean.SubjectBean> bean = (List<SubBean.SubjectBean>) msg.obj;
+            subjectBeen.addAll(bean);
             adapter = new MyFirstAdapter(context);
             adapter.setData(bean);
             mListView1.setAdapter(adapter);
         }
     };
+//八张图片点击事件
+    @Override
+    public void onClick(View v) {
+        Intent intent  = new Intent(context,WebActivity.class);
+        switch(v.getId()){
+            case R.id.year_happy8:
+                intent.putExtra("year",7);
+                break;
+            case R.id.year_happy1:
+                intent.putExtra("year",0);
+                break;
+            case R.id.year_happy2:
+                intent.putExtra("year",1);
+                break;
+            case R.id.year_happy3:
+                intent.putExtra("year",2);
+                break;
+            case R.id.year_happy4:
+                intent.putExtra("year",3);
+                break;
+            case R.id.year_happy5:
+                intent.putExtra("year",4);
+                break;
+            case R.id.year_happy6:
+                intent.putExtra("year",5);
+                break;
+            case R.id.year_happy7:
+                intent.putExtra("year",6);
+                break;
+        }
+        intent.putExtra("ad5bean",myBeen);
+        startActivity(intent);
+    }
 
     class MyViewPagerAdapter extends PagerAdapter {
 
@@ -222,8 +283,8 @@ public class Fragment_sy extends Fragment implements ViewsInterface {
     }
 
     public class MyYouhuiAdapter extends PagerAdapter {
-        int[] sDrawables = {R.drawable.youhui_pagera, R.drawable.youhui_pagerb, R.drawable.youhui_pagerc,
-                R.drawable.youhui_pagerd, R.drawable.youhui_pagere};
+//        int[] sDrawables = {R.drawable.youhui_pagera, R.drawable.youhui_pagerb, R.drawable.youhui_pagerc,
+//                R.drawable.youhui_pagerd, R.drawable.youhui_pagere};
 
         @Override
         public int getCount() {
@@ -233,8 +294,9 @@ public class Fragment_sy extends Fragment implements ViewsInterface {
         @Override
         public View instantiateItem(ViewGroup container, int position) {
             ImageView imageView = new ImageView(container.getContext());
-            imageView.setImageResource(sDrawables[position%sDrawables.length]);
+//            imageView.setImageResource(sDrawables[position%sDrawables.length]);
             // Now just add ImageView to ViewPager and return it
+            Utils.showImage(activityInfoListBeen.get(position%activityInfoListBeen.size()).activityImg,imageView);
             container.addView(imageView, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
             return imageView;
         }

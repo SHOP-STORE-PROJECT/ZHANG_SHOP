@@ -16,6 +16,7 @@ public class SubBean implements Serializable{
         public List<Ad5Bean>ad5;
         public List<SubjectBean> subjects;
         public List<DefaultGoodsListBean>defaultGoodsList;
+        public ActivityInfoBean activityInfo;
     }
 
     public class SubjectBean implements Serializable{
@@ -48,5 +49,11 @@ public class DefaultGoodsListBean implements Serializable{
     public class Ad1Bean implements Serializable{
       public String ad_type_dynamic_data;
      public String image;
+    }
+    public class ActivityInfoBean implements Serializable{
+        public List<ActivityInfoListBean>activityInfoList;
+    }
+    public class ActivityInfoListBean implements Serializable{
+        public String activityImg;
     }
 }

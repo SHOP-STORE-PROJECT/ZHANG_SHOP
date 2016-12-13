@@ -21,6 +21,7 @@
         <activity android:name=".activity.IntoActivity"/>
         <activity android:name=".activity.TimeActivity"/>
         <activity android:name=".activity.LoginMainActivity"/>
+        <activity android:name=".activity.ZhuanActivity"/>
     </application>
 
 </manifest>

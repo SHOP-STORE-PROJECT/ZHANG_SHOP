@@ -1,6 +1,7 @@
 package shop.yunifang.com.yunifang.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Paint;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import shop.yunifang.com.yunifang.R;
+import shop.yunifang.com.yunifang.activity.ZhuanActivity;
 import shop.yunifang.com.yunifang.bean.SubBean;
 import shop.yunifang.com.yunifang.utils.Utils;
 
@@ -19,10 +21,10 @@ import shop.yunifang.com.yunifang.utils.Utils;
  * Created by ZhangFanfan on 2016/12/8.
  */
 //sfagfdgfd
-public class MyFirstAdapter extends BaseAdapter {
+public class MyFirstAdapter extends BaseAdapter implements View.OnClickListener{
 
     private Context context;
-
+    private int mPosition;
     private List<SubBean.SubjectBean> subjectBean = new ArrayList<>();
 
     public MyFirstAdapter(Context context) {
@@ -46,6 +48,7 @@ public class MyFirstAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+        mPosition = position;
         ViewHolder holder = null;
         if (convertView == null) {
             holder = new ViewHolder();
@@ -110,17 +113,23 @@ public class MyFirstAdapter extends BaseAdapter {
         holder.currentPrice6.setText(""+subjectBean.get(position).goodsList.get(position).market_price);
         holder.currentPrice6.getPaint().setFlags(Paint.STRIKE_THRU_TEXT_FLAG);
     }
-
-
     private void initViews(ViewHolder holder, View convertView) {
         holder.imageView = (ImageView)convertView.findViewById(R.id.pullto_item_image);
+        holder.imageView.setOnClickListener(this);
         holder.imageView1 = (ImageView)convertView.findViewById(R.id.puul_image1);
+        holder.imageView1.setOnClickListener(this);
         holder.imageView2 = (ImageView)convertView.findViewById(R.id.puul_image2);
+        holder.imageView2.setOnClickListener(this);
         holder.imageView3 = (ImageView)convertView.findViewById(R.id.puul_image3);
+        holder.imageView3.setOnClickListener(this);
         holder.imageView4 = (ImageView)convertView.findViewById(R.id.puul_image4);
+        holder.imageView4.setOnClickListener(this);
         holder.imageView5 = (ImageView)convertView.findViewById(R.id.puul_image5);
+        holder.imageView5.setOnClickListener(this);
         holder.imageView6 = (ImageView)convertView.findViewById(R.id.puul_image6);
+        holder.imageView6.setOnClickListener(this);
         holder.imageView7 = (ImageView)convertView.findViewById(R.id.puul_image7);
+        holder.imageView7.setOnClickListener(this);
 
         holder.hotImgae1 = (ImageView)convertView.findViewById(R.id.hot_image1);
         holder.hotImgae2 = (ImageView)convertView.findViewById(R.id.hot_image2);
@@ -150,12 +159,39 @@ public class MyFirstAdapter extends BaseAdapter {
         holder.currentPrice5 = (TextView)convertView.findViewById(R.id.current_price_text5);
         holder.currentPrice6 = (TextView)convertView.findViewById(R.id.current_price_text6);
     }
-
     public void setData(List<SubBean.SubjectBean> bean) {
 
         subjectBean.addAll(bean);
         notifyDataSetChanged();
     }
+
+    @Override
+    public void onClick(View v) {
+        Intent intent = new Intent(context, ZhuanActivity.class);
+switch(v.getId()){
+
+    case R.id.pullto_item_image:
+        intent.putExtra("key",subjectBean.get(mPosition));
+        break;
+    case R.id.puul_image1:
+        break;
+    case R.id.puul_image2:
+        break;
+    case R.id.puul_image3:
+        break;
+    case R.id.puul_image4:
+        break;
+    case R.id.puul_image5:
+        break;
+    case R.id.puul_image6:
+        break;
+    case R.id.puul_image7:
+        intent.putExtra("key",subjectBean.get(mPosition));
+        break;
+       }
+        context.startActivity(intent);
+    }
+
     public static class ViewHolder {
     ImageView imageView;
     ImageView imageView1;

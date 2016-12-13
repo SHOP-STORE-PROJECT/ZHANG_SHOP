@@ -7,7 +7,7 @@
         android:id="@+id/first_pager"
         android:layout_width="match_parent"
         android:scaleType="fitXY"
-        android:layout_height="250dp" />
+        android:layout_height="230dp" />
 <LinearLayout
     android:orientation="vertical"
     android:layout_width="match_parent"
@@ -15,7 +15,7 @@
 <LinearLayout
     android:orientation="horizontal"
     android:layout_width="match_parent"
-    android:layout_height="100dp">
+    android:layout_height="90dp">
     <LinearLayout
         android:layout_weight="1"
         android:orientation="vertical"
@@ -26,7 +26,7 @@
             android:src="@drawable/year_happy1"
             android:id="@+id/year_happy1"
             android:layout_width="match_parent"
-            android:layout_height="80dp" />
+            android:layout_height="70dp" />
         <TextView
             android:gravity="center"
             android:text="每日签到"
@@ -37,13 +37,13 @@
         android:layout_weight="1"
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="100dp">
+        android:layout_height="90dp">
         <ImageView
             android:scaleType="fitXY"
             android:id="@+id/year_happy2"
             android:src="@drawable/year_happy2"
             android:layout_width="match_parent"
-            android:layout_height="80dp" />
+            android:layout_height="70dp" />
         <TextView
             android:gravity="center"
             android:text="积分商城"
@@ -54,13 +54,13 @@
      android:orientation="vertical"
      android:layout_weight="1"
      android:layout_width="match_parent"
-     android:layout_height="100dp">
+     android:layout_height="90dp">
      <ImageView
          android:scaleType="fitXY"
          android:id="@+id/year_happy3"
          android:src="@drawable/year_happy3"
          android:layout_width="match_parent"
-         android:layout_height="80dp" />
+         android:layout_height="70dp" />
      <TextView
          android:gravity="center"
          android:text="兑换专区"
@@ -71,13 +71,13 @@
       android:orientation="vertical"
       android:layout_weight="1"
       android:layout_width="match_parent"
-      android:layout_height="100dp">
+      android:layout_height="90dp">
       <ImageView
           android:scaleType="fitXY"
           android:id="@+id/year_happy4"
           android:src="@drawable/year_happy4"
           android:layout_width="match_parent"
-          android:layout_height="80dp" />
+          android:layout_height="70dp" />
       <TextView
           android:gravity="center"
           android:text="真假查询"
@@ -94,13 +94,13 @@
             android:orientation="vertical"
             android:layout_weight="1"
             android:layout_width="match_parent"
-            android:layout_height="100dp">
+            android:layout_height="90dp">
             <ImageView
                 android:scaleType="fitXY"
                 android:src="@drawable/year_happy5"
                 android:id="@+id/year_happy5"
                 android:layout_width="match_parent"
-                android:layout_height="80dp" />
+                android:layout_height="70dp" />
             <TextView
                 android:gravity="center"
                 android:text="邀请有礼"
@@ -111,13 +111,13 @@
     android:layout_weight="1"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="100dp">
+    android:layout_height="90dp">
     <ImageView
         android:scaleType="fitXY"
         android:id="@+id/year_happy6"
         android:src="@drawable/year_happy6"
         android:layout_width="match_parent"
-        android:layout_height="80dp" />
+        android:layout_height="70dp" />
     <TextView
         android:gravity="center"
         android:text="积分抵现"
@@ -128,13 +128,13 @@
           android:layout_weight="1"
           android:orientation="vertical"
           android:layout_width="match_parent"
-          android:layout_height="100dp">
+          android:layout_height="90dp">
           <ImageView
               android:scaleType="fitXY"
               android:id="@+id/year_happy7"
               android:src="@drawable/year_happy7"
               android:layout_width="match_parent"
-              android:layout_height="80dp" />
+              android:layout_height="70dp" />
           <TextView
               android:gravity="center"
               android:text="扫货攻略"
@@ -145,13 +145,13 @@
     android:orientation="vertical"
     android:layout_weight="1"
     android:layout_width="match_parent"
-    android:layout_height="100dp">
+    android:layout_height="90dp">
     <ImageView
         android:scaleType="fitXY"
         android:id="@+id/year_happy8"
         android:src="@drawable/year_happy8"
         android:layout_width="match_parent"
-        android:layout_height="80dp" />
+        android:layout_height="70dp" />
     <TextView
         android:gravity="center"
         android:text="刷脸测尺寸"
