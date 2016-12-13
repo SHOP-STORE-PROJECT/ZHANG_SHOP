@@ -37,6 +37,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/settinglv"
+        android:dividerHeight="0dip"
+        android:divider="#00000000"
         ></ListView>
     <Button
         android:id="@+id/backLogin"

@@ -1,12 +1,16 @@
 package shop.yunifang.com.yunifang.fragment;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -15,6 +19,8 @@ import java.util.List;
 
 import shop.yunifang.com.yunifang.R;
 import shop.yunifang.com.yunifang.activity.LoginMainActivity;
+import shop.yunifang.com.yunifang.activity.SettingActivity;
+import shop.yunifang.com.yunifang.activity.TheorderActivity;
 import shop.yunifang.com.yunifang.adapter.ListMyAdapter;
 import shop.yunifang.com.yunifang.bean.UserListBean;
 
@@ -26,6 +32,8 @@ public class Fragment_wd extends Fragment {
     private ListView flv;
     private List<UserListBean> list = new ArrayList<UserListBean>();
     private TextView login;
+    private ImageView user_setting;
+    private UserListBean da;
 
 
     @Override
@@ -44,6 +52,18 @@ public class Fragment_wd extends Fragment {
         login.setOnClickListener(onlist);
         //listview去分割线--------
         flv.setDividerHeight(0);
+        flv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                da = list.get(i);
+                if(da.name.equals("我的订单")){
+                    Intent intent=new Intent(getActivity(), TheorderActivity.class);
+                    startActivity(intent);
+                }
+
+
+            }
+        });
 
         //初始化数据
         LoadData();

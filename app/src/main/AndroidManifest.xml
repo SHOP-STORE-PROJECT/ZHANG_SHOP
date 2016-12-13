@@ -4,7 +4,7 @@
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <application
-       android:name=".application.MyApp"
+        android:name=".application.MyApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -24,6 +24,25 @@
         <activity android:name=".activity.ZhuanActivity"/>
         <activity android:name=".activity.FaceActivity"/>
         <activity android:name=".activity.BuyActivity"/>
+        <activity android:name=".activity.WebActivity" />
+        <activity android:name=".MainActivity" />
+        <activity android:name=".activity.IntoActivity" />
+        <activity android:name=".activity.TimeActivity" />
+        <activity android:name=".activity.LoginMainActivity" />
+        <activity android:name=".activity.ZhuanActivity" />
+
+        <!-- 短信权限 -->
+        <activity
+            android:name="com.mob.tools.MobUIShell"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <!-- ============================================================== -->
+
+        <activity android:name=".activity.SettingActivity" />
+        <activity android:name=".activity.FaceActivity" />
+        <activity android:name=".activity.BuyActivity" />
+        <activity android:name=".activity.TheorderActivity"></activity>
     </application>
 
 </manifest>
