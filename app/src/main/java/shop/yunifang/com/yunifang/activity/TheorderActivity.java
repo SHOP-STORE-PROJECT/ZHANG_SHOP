@@ -16,11 +16,10 @@ public class TheorderActivity extends AppCompatActivity {
         setContentView(R.layout.activity_theorder);
 
         initView();
-
     }
 
     private void initView() {
-    ordervp=(ViewPager)findViewById(R.id.order_vp);
+        ordervp=(ViewPager)findViewById(R.id.order_vp);
 
     }
 }
