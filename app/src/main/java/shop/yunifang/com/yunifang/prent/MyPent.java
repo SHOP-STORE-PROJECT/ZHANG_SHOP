@@ -20,19 +20,13 @@ public class MyPent {
     private static int first;
     //对httputils进行初始化操作
     public static void myPent(Context context,String url){
+
         HttpUtils.netRequest(context).volleyRequest(url,new CallBack() {
             @Override
             public void httpSuccess(String response) {
-//                Log.e("TAG","                  ------"+response);
-//                SubBean bean = new Gson().fromJson(response,SubBean.class);
-//                String msg = bean.msg;
-//                if(first==0||first ==1){
-//                    Log.e("MyPent==",response+"--------MyPent");
-
 
                     mAnInterface.successGet(response);
 
-//                }
             }
             @Override
             public void httpFailed(VolleyError error) {
@@ -44,7 +38,6 @@ public class MyPent {
         this.mAnInterface = mAnInterface;
         first = 1;
     }
-
     public void setFl(Fragment_fl mAnInterface) {
         this.mAnInterface = mAnInterface;
         first = 2;
@@ -53,5 +46,9 @@ public class MyPent {
     public void setMain(ViewsInterface mAnInterface) {
         this.mAnInterface = mAnInterface;
         first = 0;
+    }
+
+    public void setFace(ViewsInterface mAnInterface) {
+        this.mAnInterface = mAnInterface;
     }
 }

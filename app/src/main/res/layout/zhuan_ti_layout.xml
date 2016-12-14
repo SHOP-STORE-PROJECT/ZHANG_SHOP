@@ -9,11 +9,12 @@
         android:layout_width="match_parent"
         android:layout_height="50dp">
         <ImageView
+            android:layout_gravity="center"
             android:id="@+id/back_zhuan_image"
             android:src="@mipmap/back_normala"
             android:layout_weight="20"
             android:layout_width="match_parent"
-            android:layout_height="50dp" />
+            android:layout_height="30dp" />
         <TextView
             android:textSize="20sp"
             android:text="专题"

@@ -3,10 +3,12 @@ package shop.yunifang.com.yunifang.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import shop.yunifang.com.yunifang.MainActivity;
 import shop.yunifang.com.yunifang.R;
 import shop.yunifang.com.yunifang.adapter.ZhuanAdapter;
 import shop.yunifang.com.yunifang.bean.SubBean;
@@ -42,5 +44,11 @@ public class ZhuanActivity extends Activity {
         GridView mGridView = (GridView) findViewById(R.id.zhuan_grid);
         title.setText(subjectBean.title+"\n\n"+subjectBean.detail);
         mGridView.setAdapter(new ZhuanAdapter(subjectBean.goodsList,this));
+        backImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ZhuanActivity.this, MainActivity.class));finish();
+            }
+        });
     }
 }
