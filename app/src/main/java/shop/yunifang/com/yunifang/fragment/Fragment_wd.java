@@ -1,15 +1,12 @@
 package shop.yunifang.com.yunifang.fragment;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -18,7 +15,6 @@ import java.util.List;
 
 import shop.yunifang.com.yunifang.R;
 import shop.yunifang.com.yunifang.activity.LoginMainActivity;
-import shop.yunifang.com.yunifang.activity.SettingActivity;
 import shop.yunifang.com.yunifang.adapter.ListMyAdapter;
 import shop.yunifang.com.yunifang.bean.UserListBean;
 
@@ -30,7 +26,6 @@ public class Fragment_wd extends Fragment {
     private ListView flv;
     private List<UserListBean> list = new ArrayList<UserListBean>();
     private TextView login;
-    private ImageView user_setting;
 
 
     @Override
@@ -45,15 +40,10 @@ public class Fragment_wd extends Fragment {
        //初始化控件
         flv=(ListView)view.findViewById(R.id.fragment_lv);
         login=(TextView)view.findViewById(R.id.tv_login);
-        //设置的控件
-        user_setting=(ImageView)view.findViewById(R.id.user_setting);
-        //设置的监听
-        user_setting.setOnClickListener(settingoncli);
         //登录的点击事件
         login.setOnClickListener(onlist);
         //listview去分割线--------
         flv.setDividerHeight(0);
-
 
         //初始化数据
         LoadData();
@@ -75,13 +65,7 @@ public class Fragment_wd extends Fragment {
     };
 
 
-    View.OnClickListener settingoncli=new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-            Intent intent=new Intent(getActivity(), SettingActivity.class);
-            startActivity(intent);
-        }
-    };
+
 
 
 

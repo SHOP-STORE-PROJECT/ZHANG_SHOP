@@ -20,23 +20,15 @@ android {
         }
     }
 }
-
-    repositories{
-        flatDir{
-            dirs'libs'
-        }
-    }
-
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile project(':library')
     compile 'com.android.support:appcompat-v7:24.2.1'
-    compile 'com.android.support:recyclerview-v7:24.2.1'
     testCompile 'junit:junit:4.12'
     compile 'eu.the4thfloor.volley:com.android.volley:2015.05.28'
     compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
     compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
+    compile files('src/libs/MobCommons-2016.1201.1839.jar')
+    compile files('src/libs/MobTools-2016.1201.1839.jar')
     compile 'com.google.code.gson:gson:2.8.0'
-    compile name:'SMSSDK-2.1.3',ext:'aar'
-    compile name:'SMSSDKGUI-2.1.3',ext:'aar'
 }
