@@ -1,5 +1,7 @@
 package shop.yunifang.com.yunifang;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -32,7 +34,6 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     private void yuNiFangFragment() {
         //获取fragment
         fragment = getSupportFragmentManager();
-
         fragment.beginTransaction().replace(R.id.fragment,new Fragment_sy()).commit();
 
     }
