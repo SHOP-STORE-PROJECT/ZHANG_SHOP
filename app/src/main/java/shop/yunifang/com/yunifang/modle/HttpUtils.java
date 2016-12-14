@@ -1,6 +1,7 @@
 package shop.yunifang.com.yunifang.modle;
 
 import android.content.Context;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
@@ -41,13 +42,12 @@ public class HttpUtils {
         }
     }
     public void volleyRequest(String url, final CallBack callBack) {
-//        Log.e("response ====",url);
+        Log.e("response ====","++++++++++++++"+url);
         StringRequest stringRequest = new StringRequest(url,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                         if(callBack!=null) {
-
                             callBack.httpSuccess(response);
                         }
                     }

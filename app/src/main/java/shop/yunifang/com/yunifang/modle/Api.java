@@ -10,8 +10,7 @@ public class Api {
     public static final String homeArgs = "random=59676&encode=62d458fefce9c740359873cc19b05188";
     public static final String category = "http://m.yunifang.com/yunifang/mobile/category/list?random=60729&encode=d5f7520dad446ad974110b1b2cb499c8";
     public static String getCategory(String  id){
-        String getCategory ="http://m.yunifang.com/yunifang/mobile/goods/getall?random=92414&encode=33984fb43bc319ca16f9b7efb4baf895&category_id="+id;
-//        Log.e("getCategory===",getCategory);
+        String getCategory ="http://m.yunifang.com/yunifang/mobile/goods/getall?random=92414&encode=33984fb43bc319ca16f9b7efb4baf895&category_id="+id+"";
         return getCategory;
     }
 //    返回数据：json串

@@ -1,5 +1,7 @@
 package shop.yunifang.com.yunifang.bean;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.List;
 
 /**
@@ -13,7 +15,8 @@ public class DetailBean {
      public  String efficacy;
      public  String goods_img;
      public  String goods_name;
-//     public  String id;
+        @SerializedName("id")
+     public  String did;
      public  String market_price;
      public  String shop_price;
      public  String watermarkUrl;

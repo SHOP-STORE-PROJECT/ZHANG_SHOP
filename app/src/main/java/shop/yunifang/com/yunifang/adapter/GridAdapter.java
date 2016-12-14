@@ -57,7 +57,7 @@ public class GridAdapter extends BaseAdapter {
 
     private void showImageAndText(GridViewHolder holder,int position) {
         Utils.showImage(dataBean.get(position).goods_img,holder.imageView1);
-        Utils.showImage(dataBean.get(position).watermarkUrl,holder.imageView2);
+//        Utils.showImage(dataBean.get(position).watermarkUrl,holder.imageView2);
         holder.text1.setText(dataBean.get(position).efficacy);
         holder.text2.setText(dataBean.get(position).goods_name);
         holder.text3.setText(dataBean.get(position).shop_price+"");
@@ -68,7 +68,7 @@ public class GridAdapter extends BaseAdapter {
     }
     private void initViews(View convertView, GridViewHolder holder) {
         holder.imageView1 = (ImageView) convertView.findViewById(R.id.footer_image1);
-        holder.imageView2 = (ImageView) convertView.findViewById(R.id.footer_image2);
+//        holder.imageView2 = (ImageView) convertView.findViewById(R.id.footer_image2);
         holder.text1 = (TextView) convertView.findViewById(R.id.footer_text1);
         holder.text2 = (TextView) convertView.findViewById(R.id.footer_text2);
         holder.text3 = (TextView) convertView.findViewById(R.id.footer_text3);

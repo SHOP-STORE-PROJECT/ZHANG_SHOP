@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import shop.yunifang.com.yunifang.R;
+import shop.yunifang.com.yunifang.activity.BuyActivity;
 import shop.yunifang.com.yunifang.activity.ZhuanActivity;
 import shop.yunifang.com.yunifang.bean.SubBean;
 import shop.yunifang.com.yunifang.utils.Utils;
@@ -71,12 +72,12 @@ public class MyFirstAdapter extends BaseAdapter implements View.OnClickListener{
         Utils.showImage(subjectBean.get(position).goodsList.get(4).goods_img, holder.imageView5);
         Utils.showImage(subjectBean.get(position).goodsList.get(5).goods_img, holder.imageView6);
 
-        Utils.showImage(subjectBean.get(position).goodsList.get(position).watermarkUrl,holder.hotImgae1);
-        Utils.showImage(subjectBean.get(position).goodsList.get(position).watermarkUrl,holder.hotImgae2);
-        Utils.showImage(subjectBean.get(position).goodsList.get(position).watermarkUrl,holder.hotImgae3);
-        Utils.showImage(subjectBean.get(position).goodsList.get(position).watermarkUrl,holder.hotImgae4);
-        Utils.showImage(subjectBean.get(position).goodsList.get(position).watermarkUrl,holder.hotImgae5);
-        Utils.showImage(subjectBean.get(position).goodsList.get(position).watermarkUrl,holder.hotImgae6);
+//        Utils.showImage(subjectBean.get(position).goodsList.get(position).watermarkUrl,holder.hotImgae1);
+//        Utils.showImage(subjectBean.get(position).goodsList.get(position).watermarkUrl,holder.hotImgae2);
+//        Utils.showImage(subjectBean.get(position).goodsList.get(position).watermarkUrl,holder.hotImgae3);
+//        Utils.showImage(subjectBean.get(position).goodsList.get(position).watermarkUrl,holder.hotImgae4);
+//        Utils.showImage(subjectBean.get(position).goodsList.get(position).watermarkUrl,holder.hotImgae5);
+//        Utils.showImage(subjectBean.get(position).goodsList.get(position).watermarkUrl,holder.hotImgae6);
 
         if(subjectBean.get(position).goodsList.get(position).goods_name.length()>19){
             holder.nameText1.setText(subjectBean.get(position).goodsList.get(position).goods_name.substring(0,19)+"...");
@@ -131,12 +132,12 @@ public class MyFirstAdapter extends BaseAdapter implements View.OnClickListener{
         holder.imageView7 = (ImageView)convertView.findViewById(R.id.puul_image7);
         holder.imageView7.setOnClickListener(this);
 
-        holder.hotImgae1 = (ImageView)convertView.findViewById(R.id.hot_image1);
-        holder.hotImgae2 = (ImageView)convertView.findViewById(R.id.hot_image2);
-        holder.hotImgae3 = (ImageView)convertView.findViewById(R.id.hot_image3);
-        holder.hotImgae4 = (ImageView)convertView.findViewById(R.id.hot_image4);
-        holder.hotImgae5 = (ImageView)convertView.findViewById(R.id.hot_image5);
-        holder.hotImgae6 = (ImageView)convertView.findViewById(R.id.hot_image6);
+//        holder.hotImgae1 = (ImageView)convertView.findViewById(R.id.hot_image1);
+//        holder.hotImgae2 = (ImageView)convertView.findViewById(R.id.hot_image2);
+//        holder.hotImgae3 = (ImageView)convertView.findViewById(R.id.hot_image3);
+//        holder.hotImgae4 = (ImageView)convertView.findViewById(R.id.hot_image4);
+//        holder.hotImgae5 = (ImageView)convertView.findViewById(R.id.hot_image5);
+//        holder.hotImgae6 = (ImageView)convertView.findViewById(R.id.hot_image6);
 
         holder.nameText1 = (TextView) convertView.findViewById(R.id.name_text1);
         holder.nameText2 = (TextView) convertView.findViewById(R.id.name_text2);
@@ -168,28 +169,35 @@ public class MyFirstAdapter extends BaseAdapter implements View.OnClickListener{
     @Override
     public void onClick(View v) {
         Intent intent = new Intent(context, ZhuanActivity.class);
-switch(v.getId()){
+        Intent intent1 = new Intent(context, BuyActivity.class);
+      switch(v.getId()){
 
     case R.id.pullto_item_image:
-        intent.putExtra("key",subjectBean.get(mPosition));
+        intent.putExtra("key",subjectBean.get(mPosition)); context.startActivity(intent);
         break;
     case R.id.puul_image1:
+        context.startActivity(intent1);
         break;
     case R.id.puul_image2:
+        context.startActivity(intent1);
         break;
     case R.id.puul_image3:
+        context.startActivity(intent1);
         break;
     case R.id.puul_image4:
+        context.startActivity(intent1);
         break;
     case R.id.puul_image5:
+        context.startActivity(intent1);
         break;
     case R.id.puul_image6:
+        context.startActivity(intent1);
         break;
     case R.id.puul_image7:
-        intent.putExtra("key",subjectBean.get(mPosition));
+        intent.putExtra("key",subjectBean.get(mPosition)); context.startActivity(intent);
         break;
        }
-        context.startActivity(intent);
+
     }
 
     public static class ViewHolder {
@@ -201,12 +209,12 @@ switch(v.getId()){
     ImageView imageView5;
     ImageView imageView6;
     ImageView imageView7;
-        ImageView hotImgae1;
-        ImageView hotImgae2;
-        ImageView hotImgae3;
-        ImageView hotImgae4;
-        ImageView hotImgae5;
-        ImageView hotImgae6;
+//        ImageView hotImgae1;
+//        ImageView hotImgae2;
+//        ImageView hotImgae3;
+//        ImageView hotImgae4;
+//        ImageView hotImgae5;
+//        ImageView hotImgae6;
         TextView nameText1;
         TextView nameText2;
         TextView nameText3;

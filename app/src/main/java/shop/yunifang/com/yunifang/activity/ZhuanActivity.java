@@ -37,7 +37,6 @@ public class ZhuanActivity extends Activity {
         subjectBean = (SubBean.SubjectBean) intent.getSerializableExtra("key");
 
     }
-
     private void initViews() {
         ImageView backImage = (ImageView) findViewById(R.id.back_zhuan_image);
         title = (TextView) findViewById(R.id.zhuan_text);

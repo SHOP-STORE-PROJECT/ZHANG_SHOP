@@ -69,7 +69,7 @@ public class ZhuanAdapter extends BaseAdapter {
     }
     private void initViews(View convertView, ZhViewHolder holder) {
         holder.imageView1 = (ImageView) convertView.findViewById(R.id.footer_image1);
-        holder.imageView2 = (ImageView) convertView.findViewById(R.id.footer_image2);
+//        holder.imageView2 = (ImageView) convertView.findViewById(R.id.footer_image2);
         holder.text1 = (TextView) convertView.findViewById(R.id.footer_text1);
         holder.text2 = (TextView) convertView.findViewById(R.id.footer_text2);
         holder.text3 = (TextView) convertView.findViewById(R.id.footer_text3);
