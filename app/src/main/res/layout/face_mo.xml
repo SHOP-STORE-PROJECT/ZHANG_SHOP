@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+<TextView
+    android:textSize="18sp"
+    android:gravity="center"
+    android:text="面膜"
+    android:layout_width="match_parent"
+    android:layout_height="40dp" />
+    <TextView
+        android:background="@color/secondary_text"
+        android:layout_width="match_parent"
+        android:layout_height="1dp" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+        <TextView
+            android:text="贴式面膜"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:id="@+id/zs_mm"
+            android:layout_width="match_parent"
+            android:layout_height="40dp" />
+        <TextView
+            android:layout_marginTop="-5dp"
+            android:background="@color/secondary_text"
+            android:layout_width="1dp"
+            android:layout_height="20dp" />
+        <TextView
+            android:text="睡眠面膜"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:id="@+id/sm_mm"
+            android:layout_width="match_parent"
+            android:layout_height="40dp" />
+        <TextView
+            android:layout_marginTop="-5dp"
+            android:background="@color/secondary_text"
+            android:layout_width="1dp"
+            android:layout_height="20dp" />
+        <TextView
+            android:text="泥浆面膜"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:id="@+id/nj_mm"
+            android:layout_width="match_parent"
+            android:layout_height="40dp" />
+    </LinearLayout>
+    <TextView
+        android:background="@color/secondary_text"
+        android:layout_width="match_parent"
+        android:layout_height="1dp" />
+    <android.support.v4.view.ViewPager
+        android:id="@+id/face_mm_viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>

@@ -170,7 +170,7 @@ public class Fragment_sy extends Fragment implements ViewsInterface,View.OnClick
     }
 
     private void showView1(List<SubBean.Ad5Bean> ad5Been) {
-        myBeen = new ArrayList<>();
+        myBeen = new ArrayList<SubBean.Ad5Bean>();
         myBeen.addAll(ad5Been);
         ImageView year_happy1 = (ImageView) view1.findViewById(R.id.year_happy1);
         Utils.showImage(ad5Been.get(0).image,year_happy1);
@@ -205,7 +205,7 @@ public class Fragment_sy extends Fragment implements ViewsInterface,View.OnClick
     protected Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
-            subjectBeen = new ArrayList<>();
+            subjectBeen = new ArrayList<SubBean.SubjectBean>();
             List<SubBean.SubjectBean> bean = (List<SubBean.SubjectBean>) msg.obj;
             subjectBeen.addAll(bean);
             adapter = new MyFirstAdapter(context);

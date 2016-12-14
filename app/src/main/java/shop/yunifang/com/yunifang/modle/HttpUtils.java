@@ -20,7 +20,6 @@ public class HttpUtils {
     private static RequestQueue mQueue;
     private static HttpUtils httpUtils;
     private final boolean aBoolean;
-
     private Context mContext;
     //HttpUtils判空初始化
     public static HttpUtils netRequest(Context context) {
@@ -42,12 +41,13 @@ public class HttpUtils {
         }
     }
     public void volleyRequest(String url, final CallBack callBack) {
-
+//        Log.e("response ====",url);
         StringRequest stringRequest = new StringRequest(url,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                         if(callBack!=null) {
+
                             callBack.httpSuccess(response);
                         }
                     }

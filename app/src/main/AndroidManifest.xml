@@ -22,6 +22,7 @@
         <activity android:name=".activity.TimeActivity"/>
         <activity android:name=".activity.LoginMainActivity"/>
         <activity android:name=".activity.ZhuanActivity"/>
+        <activity android:name=".activity.FaceActivity"/>
     </application>
 
 </manifest>
