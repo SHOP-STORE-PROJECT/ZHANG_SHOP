@@ -11,10 +11,10 @@
             android:id="@+id/footer_image_cate1"
             android:layout_width="match_parent"
             android:layout_height="150dp" />
-        <ImageView
+<!--        <ImageView
             android:id="@+id/footer_image_cate2"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content" />-->
     </RelativeLayout>
     <TextView
         android:textSize="15sp"

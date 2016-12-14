@@ -48,7 +48,5 @@ public class MyPent {
         first = 0;
     }
 
-    public void setFace(ViewsInterface mAnInterface) {
-        this.mAnInterface = mAnInterface;
-    }
+
 }

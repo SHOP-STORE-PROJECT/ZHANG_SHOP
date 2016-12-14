@@ -134,7 +134,7 @@ public class Fragment_sy extends Fragment implements ViewsInterface,View.OnClick
 //        mListView1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 //            @Override
 //            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                //// TODO: 2016/12/13 专题页面跳转
+//
 ////                Intent intent = new Intent(context, ZhuanActivity.class);
 ////                intent.putExtra("subject",subjectBeen.get(position));
 ////                startActivity(intent);

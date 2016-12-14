@@ -59,7 +59,7 @@ public class CateAdapter extends BaseAdapter {
 
     private void showImageAndText(CateViewHolder holder, int position) {
         Utils.showImage(briefBeen.get(position).goods_img,holder.imageView1);
-        Utils.showImage(briefBeen.get(position).watermarkUrl,holder.imageView2);
+//        Utils.showImage(briefBeen.get(position).watermarkUrl,holder.imageView2);
         holder.text1.setText(briefBeen.get(position).efficacy);
         holder.text2.setText(briefBeen.get(position).goods_name);
         holder.text3.setText(briefBeen.get(position).shop_price+"");
@@ -70,7 +70,7 @@ public class CateAdapter extends BaseAdapter {
     }
     private void initViews(View convertView, CateViewHolder holder) {
         holder.imageView1 = (ImageView) convertView.findViewById(R.id.footer_image_cate1);
-        holder.imageView2 = (ImageView) convertView.findViewById(R.id.footer_image_cate2);
+//        holder.imageView2 = (ImageView) convertView.findViewById(R.id.footer_image_cate2);
         holder.text1 = (TextView) convertView.findViewById(R.id.footer_text_cate1);
         holder.text2 = (TextView) convertView.findViewById(R.id.footer_text_cate2);
         holder.text3 = (TextView) convertView.findViewById(R.id.footer_text_cate3);
@@ -79,7 +79,7 @@ public class CateAdapter extends BaseAdapter {
     }
     //添加网络数据实时刷新
     public void setData(List<CateGoryBean.GoodsBriefBean> data) {
-        Log.e("CateViewHolder",""+data.get(0).market_price+"=================");
+//        Log.e("CateViewHolder",""+data.get(0).market_price+"=================");
         briefBeen.addAll(data);
         notifyDataSetChanged();
     }

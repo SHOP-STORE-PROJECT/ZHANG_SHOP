@@ -106,7 +106,7 @@ public class Fragment_fl extends Fragment implements ViewsInterface,View.OnClick
 //        actualListView.addFooterView(View);
         View view = View.inflate(context,R.layout.cate_header_layout,null);
          viewOnClick(view);
-//// TODO: 2016/12/12 头部点击事件 
+
         View view1 = View.inflate(context,R.layout.cate_footer_layout,null);
         mView = (GridView) view1.findViewById(R.id.footer_grid_item_cate);
         //添加addHeaderView
@@ -162,7 +162,7 @@ public class Fragment_fl extends Fragment implements ViewsInterface,View.OnClick
     //解析网络数据添加显示
     @Override
     public void successGet(String response) {
-        myBeen = new ArrayList<CateGoryBean.CateBean>();
+        myBeen = new ArrayList<>();
         CateGoryBean bean = new Gson().fromJson(response,CateGoryBean.class);
         List<CateGoryBean.CateBean> goryBeen = bean.data.category;
 //        Log.e("CateGoryBean===",""+goryBeen);

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_weight="1"
+        android:gravity="top"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+        <ImageView
+            android:id="@+id/buy_back"
+            android:layout_weight="2"
+            android:src="@mipmap/back_normala"
+            android:layout_gravity="top"
+            android:layout_width="match_parent"
+            android:layout_height="25dp" />
+        <TextView
+            android:gravity="center"
+            android:textSize="20sp"
+            android:text="商品詳情"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="40dp" />
+        <ImageView
+            android:id="@+id/buy_car"
+            android:layout_weight="2"
+            android:src="@drawable/goods_shopping_cart"
+            android:layout_width="match_parent"
+            android:layout_height="25dp" />
+        <ImageView
+            android:id="@+id/share_body"
+            android:layout_weight="2"
+            android:src="@drawable/share_normal"
+            android:layout_width="match_parent"
+            android:layout_height="25dp" />
+    </LinearLayout>
+
+    <!--底部加入購物車-->
+        <LinearLayout
+            android:layout_weight="1"
+            android:gravity="bottom"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="60dp">
+            <LinearLayout
+                android:layout_weight="2"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="40dp">
+                <ImageView
+                    android:id="@+id/contact_customer"
+                    android:layout_weight="5"
+                    android:src="@drawable/public_contact_service_icon"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp" />
+                <TextView
+                    android:textSize="20sp"
+                    android:gravity="center_vertical"
+                    android:text="客服"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_weight="2"
+                android:layout_width="match_parent"
+                android:layout_height="60dp">
+                <TextView
+                    android:id="@+id/add_car"
+                    android:gravity="center"
+                    android:textColor="@color/solid_white"
+                    android:text="加入購物車"
+                    android:background="@android:color/holo_orange_light"
+                    android:layout_weight="1"
+                    android:textSize="20sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp" />
+                <TextView
+                    android:id="@+id/buy_now"
+                    android:gravity="center"
+                    android:textColor="@color/solid_white"
+                    android:text="立即購買"
+                    android:background="@color/colorAccent"
+                    android:layout_weight="1"
+                    android:textSize="20sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp" />
+            </LinearLayout>
+        </LinearLayout>
+</LinearLayout>

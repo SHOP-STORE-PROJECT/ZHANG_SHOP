@@ -2,6 +2,7 @@ package shop.yunifang.com.yunifang.adapter;
 
 import android.content.Context;
 import android.graphics.Paint;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -22,9 +23,10 @@ public class FaceBaseAdapter extends BaseAdapter {
 
     private List<DetailBean.DetailData>datas;
     private Context context;
-    public FaceBaseAdapter(Context context, List<DetailBean.DetailData> datas) {
-        this.context = context;
+
+    public FaceBaseAdapter(List<DetailBean.DetailData> datas, Context context) {
         this.datas = datas;
+        this.context = context;
     }
 
     @Override
@@ -57,8 +59,9 @@ public class FaceBaseAdapter extends BaseAdapter {
     }
 
     private void showImageAndText(FaceViewHolder holder, int position) {
+        Log.e("showImageAndText======",datas.get(position).efficacy);
         Utils.showImage(datas.get(position).goods_img,holder.imageView1);
-        Utils.showImage(datas.get(position).watermarkUrl,holder.imageView2);
+//        Utils.showImage(datas.get(position).watermarkUrl,holder.imageView2);
         holder.text1.setText(datas.get(position).efficacy);
         holder.text2.setText(datas.get(position).goods_name);
         holder.text3.setText(datas.get(position).shop_price+"");
@@ -69,7 +72,7 @@ public class FaceBaseAdapter extends BaseAdapter {
     }
     private void initViews(View convertView,FaceViewHolder holder) {
         holder.imageView1 = (ImageView) convertView.findViewById(R.id.footer_image1);
-        holder.imageView2 = (ImageView) convertView.findViewById(R.id.footer_image2);
+//        holder.imageView2 = (ImageView) convertView.findViewById(R.id.footer_image2);
         holder.text1 = (TextView) convertView.findViewById(R.id.footer_text1);
         holder.text2 = (TextView) convertView.findViewById(R.id.footer_text2);
         holder.text3 = (TextView) convertView.findViewById(R.id.footer_text3);
@@ -78,11 +81,12 @@ public class FaceBaseAdapter extends BaseAdapter {
     }
 
 
-    //添加网络数据实时刷新
-    public void setData(List<DetailBean.DetailData> data) {
-        datas.addAll(data);
-        notifyDataSetChanged();
-    }
+//    //添加网络数据实时刷新
+//    public void setData(List<DetailBean.DetailData> data) {
+//        datas = new ArrayList<>();
+//        datas.addAll(data);
+//        notifyDataSetChanged();
+//    }
     //自定义Viewholder类
     public static class FaceViewHolder{
         ImageView imageView1,imageView2;
