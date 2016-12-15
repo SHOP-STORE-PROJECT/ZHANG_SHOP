@@ -38,8 +38,6 @@ public class SettingActivity extends AppCompatActivity {
 
         settingData();
 
-
-
     }
 
     private void codelogin() {

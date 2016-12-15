@@ -1,8 +1,6 @@
 package shop.yunifang.com.yunifang.fragment;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -19,10 +17,11 @@ import java.util.List;
 
 import shop.yunifang.com.yunifang.R;
 import shop.yunifang.com.yunifang.activity.LoginMainActivity;
-import shop.yunifang.com.yunifang.activity.SettingActivity;
 import shop.yunifang.com.yunifang.activity.TheorderActivity;
 import shop.yunifang.com.yunifang.adapter.ListMyAdapter;
 import shop.yunifang.com.yunifang.bean.UserListBean;
+
+//import shop.yunifang.com.yunifang.activity.SettingActivity;
 
 
 /**
