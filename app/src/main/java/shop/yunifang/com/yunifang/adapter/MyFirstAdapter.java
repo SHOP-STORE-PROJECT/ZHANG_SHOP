@@ -173,7 +173,8 @@ public class MyFirstAdapter extends BaseAdapter implements View.OnClickListener{
       switch(v.getId()){
 
     case R.id.pullto_item_image:
-        intent.putExtra("key",subjectBean.get(mPosition)); context.startActivity(intent);
+        intent.putExtra("key",subjectBean.get(mPosition));
+        context.startActivity(intent);
         break;
     case R.id.puul_image1:
         context.startActivity(intent1);

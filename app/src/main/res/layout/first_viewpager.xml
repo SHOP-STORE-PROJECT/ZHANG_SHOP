@@ -9,9 +9,10 @@
         android:scaleType="fitXY"
         android:layout_height="230dp" />
 <LinearLayout
+    android:gravity="bottom"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="160dp">
+    android:layout_height="90dp">
 <LinearLayout
     android:orientation="horizontal"
     android:layout_width="match_parent"
@@ -85,8 +86,8 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="90dp">
-        <LinearLayout
+        android:layout_height="0dp">
+  <!--      <LinearLayout
             android:orientation="vertical"
             android:layout_weight="1"
             android:layout_width="match_parent"
@@ -149,7 +150,7 @@
         android:text="刷脸测尺寸"
         android:layout_width="match_parent"
         android:layout_height="30dp" />
-</LinearLayout>
+</LinearLayout>-->
     </LinearLayout>
 </LinearLayout>
     <TextView
