@@ -1,5 +1,7 @@
 package shop.yunifang.com.yunifang.bean;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.io.Serializable;
 import java.util.List;
 
@@ -20,6 +22,7 @@ public class SubBean implements Serializable{
     }
 
     public class SubjectBean implements Serializable{
+
         public String detail;
         public String image;
         public String title;
@@ -27,6 +30,8 @@ public class SubBean implements Serializable{
     }
 
     public class GoodsBean implements Serializable{
+        @SerializedName("id")
+        public String gId;
         public String goods_img;
         public String goods_name;
         public String watermarkUrl;
@@ -34,6 +39,8 @@ public class SubBean implements Serializable{
         public float shop_price;
     }
 public class DefaultGoodsListBean implements Serializable{
+    @SerializedName("id")
+    public String dbId;
     public String efficacy;
     public String goods_img;
     public String goods_name;

@@ -10,7 +10,6 @@ import java.util.List;
 //物品分类界面
 public class DetailBean {
     public List<DetailData>data;
-
     public  class DetailData{
      public  String efficacy;
      public  String goods_img;

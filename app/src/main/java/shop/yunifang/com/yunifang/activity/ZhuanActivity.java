@@ -45,6 +45,7 @@ public class ZhuanActivity extends Activity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 //                Toast.makeText(ZhuanActivity.this,"这是条目"+position,Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(ZhuanActivity.this, BuyActivity.class);
+                intent.putExtra("key",subjectBean.goodsList.get(position).gId);
                 startActivity(intent);
             }
         });

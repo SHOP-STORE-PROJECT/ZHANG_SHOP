@@ -21,10 +21,14 @@ import shop.yunifang.com.yunifang.utils.Utils;
 
 public class GridAdapter extends BaseAdapter {
 
+    private OnGridViewListener viewListener;
     private Context context;
     private List<SubBean.DefaultGoodsListBean> dataBean = new ArrayList<>();
     public GridAdapter(Context context) {
         this.context = context;
+    }
+    public void setOnGridViewListener(OnGridViewListener viewListener){
+        this.viewListener = viewListener;
     }
     @Override
     public int getCount() {
@@ -42,7 +46,7 @@ public class GridAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         GridViewHolder holder = null;
         if(convertView ==null){
             holder = new GridViewHolder();
@@ -51,6 +55,12 @@ public class GridAdapter extends BaseAdapter {
         }else{
             holder = (GridViewHolder) convertView.getTag();
         }
+        holder.imageView1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                viewListener.gridItemPosition(dataBean.get(position).dbId);
+            }
+        });
         showImageAndText(holder,position);
         return convertView;
     }
@@ -86,5 +96,8 @@ public class GridAdapter extends BaseAdapter {
     public static class GridViewHolder{
         ImageView imageView1,imageView2;
         TextView text1,text2,text3,text4;
+    }
+    public interface OnGridViewListener{
+        void gridItemPosition(String position);
     }
 }

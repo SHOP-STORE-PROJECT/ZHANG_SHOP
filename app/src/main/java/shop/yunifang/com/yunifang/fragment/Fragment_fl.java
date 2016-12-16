@@ -27,6 +27,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import shop.yunifang.com.yunifang.R;
+import shop.yunifang.com.yunifang.activity.BuyActivity;
 import shop.yunifang.com.yunifang.activity.FaceActivity;
 import shop.yunifang.com.yunifang.activity.views.ViewsInterface;
 import shop.yunifang.com.yunifang.adapter.CateAdapter;
@@ -172,6 +173,14 @@ public class Fragment_fl extends Fragment implements ViewsInterface,View.OnClick
         adapter = new CateAdapter(context);
         adapter.setData(briefBeen);
         mView.setAdapter(adapter);
+        adapter.setOnCateAdapter(new CateAdapter.onClickCate() {
+            @Override
+            public void myCate(String position) {
+                Intent intent = new Intent(context, BuyActivity.class);
+                intent.putExtra("key",position);
+                startActivity(intent);
+            }
+        });
     }
     @Override
     public void failedGet(String errCode) {
@@ -221,10 +230,7 @@ public class Fragment_fl extends Fragment implements ViewsInterface,View.OnClick
             case R.id.fz_text6:fz_text6.setTextColor(Color.RED);
                 break;
         }
-
-
     }
-
     private class GetDataTask extends AsyncTask<Void, Void, String[]> {
 
         @Override

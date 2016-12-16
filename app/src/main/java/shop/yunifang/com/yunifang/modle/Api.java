@@ -7,12 +7,18 @@ package shop.yunifang.com.yunifang.modle;
 public class Api {
     //    主页面Url
     public static final String homeUrl = "http://m.yunifang.com/yunifang/mobile/home";
-    public static final String homeArgs = "random=59676&encode=62d458fefce9c740359873cc19b05188";
+//    public static final String homeArgs = "random=59676&encode=62d458fefce9c740359873cc19b05188";
     public static final String category = "http://m.yunifang.com/yunifang/mobile/category/list?random=60729&encode=d5f7520dad446ad974110b1b2cb499c8";
     public static String getCategory(String  id){
-        String getCategory ="http://m.yunifang.com/yunifang/mobile/goods/getall?random=92414&encode=33984fb43bc319ca16f9b7efb4baf895&category_id="+id+"";
+    String getCategory ="http://m.yunifang.com/yunifang/mobile/goods/getall?random=92414&encode=33984fb43bc319ca16f9b7efb4baf895&category_id="+id+"";
         return getCategory;
     }
+    public static String goodsId(String id){   //    商品详情（id）
+        String goodsDes = "http://m.yunifang.com/yunifang/mobile/goods/detail?random=6716&encode=b02382bd9e457e06e09b68a6a4f26eb4&id="+id;
+
+        return goodsDes;
+    }
+
 //    返回数据：json串
 //    ad1--最上边viewPager数据  ad3--0元抽奖活动数据
 //    ad4--兑换专区   briefs--商品信息

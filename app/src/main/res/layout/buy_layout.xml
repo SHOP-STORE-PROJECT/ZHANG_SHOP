@@ -39,12 +39,82 @@
             android:layout_height="35dp" />
     </LinearLayout>
 <LinearLayout
-    android:orientation="vertical"
     android:layout_weight="10"
+    android:gravity="top"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="0dp">
+    <ScrollView
+        android:id="@+id/contaner"
+        android:layout_width="match_parent"
+        android:layout_height="2000dp">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <android.support.v4.view.ViewPager
+                android:id="@+id/buy_viewpager"
+                android:layout_width="match_parent"
+                android:layout_height="450dp" />
+                <TextView
+                    android:textSize="15sp"
+                    android:id="@+id/desc_goods"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp" />
+                <TextView
+                    android:id="@+id/price_goods"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp" />
+            <ListView
+                android:id="@+id/buy_list"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"></ListView>
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp">
+                    <TextView
+                        android:text="商品详情"
+                        android:gravity="center"
+                        android:id="@+id/tv_des1"
+                        android:layout_weight="1"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp" /> <TextView
+                    android:text="商品详情"
+                    android:gravity="center"
+                    android:id="@+id/tv_des2"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp" /> <TextView
+                    android:text="商品详情"
+                    android:gravity="center"
+                    android:id="@+id/tv_des3"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp" />
+                </LinearLayout>
+            <WebView
+                android:id="@+id/web_view1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"></WebView>
+            <WebView
+                android:id="@+id/web_view2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"></WebView>
+            <WebView
+                android:id="@+id/web_view3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"></WebView>
+        </LinearLayout>
+        </LinearLayout>
 
+    </ScrollView>
 </LinearLayout>
+
     <!--底部加入購物車-->
         <LinearLayout
             android:layout_weight="1"
@@ -56,7 +126,7 @@
                 android:layout_weight="2"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="40dp">
+                android:layout_height="50dp">
                 <ImageView
                     android:id="@+id/contact_customer"
                     android:layout_weight="5"

@@ -2,7 +2,6 @@ package shop.yunifang.com.yunifang.adapter;
 
 import android.content.Context;
 import android.graphics.Paint;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -23,11 +22,15 @@ import shop.yunifang.com.yunifang.utils.Utils;
 public class CateAdapter extends BaseAdapter {
     private List<CateGoryBean.GoodsBriefBean>briefBeen = new ArrayList<>();
     private Context context;
+private onClickCate clickCate;
 
-    public CateAdapter( Context context) {
-        this.context = context;
+    public void setOnCateAdapter(onClickCate clickCate) {
+        this.clickCate = clickCate;
     }
 
+    public CateAdapter(Context context) {
+        this.context = context;
+    }
     @Override
     public int getCount() {
         return briefBeen.size();
@@ -44,7 +47,7 @@ public class CateAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         CateViewHolder holder = null;
         if(convertView ==null){
             holder = new CateViewHolder();
@@ -53,6 +56,12 @@ public class CateAdapter extends BaseAdapter {
         }else{
             holder = (CateViewHolder) convertView.getTag();
         }
+        holder.imageView1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clickCate.myCate(briefBeen.get(position).goodsId);
+            }
+        });
         showImageAndText(holder,position);
         return convertView;
     }
@@ -87,5 +96,8 @@ public class CateAdapter extends BaseAdapter {
     public static class CateViewHolder{
         ImageView imageView1,imageView2;
         TextView text1,text2,text3,text4;
+    }
+    public  interface  onClickCate{
+        void myCate(String position);
     }
 }

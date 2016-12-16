@@ -26,7 +26,12 @@ public class MyFirstAdapter extends BaseAdapter implements View.OnClickListener{
 
     private Context context;
     private int mPosition;
+    private OnClickPosition clickPosition;
     private List<SubBean.SubjectBean> subjectBean = new ArrayList<>();
+
+    public void  setOnMyFirstAdapter(OnClickPosition clickPosition) {
+        this.clickPosition = clickPosition;
+    }
 
     public MyFirstAdapter(Context context) {
         this.context = context;
@@ -48,7 +53,7 @@ public class MyFirstAdapter extends BaseAdapter implements View.OnClickListener{
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         mPosition = position;
         ViewHolder holder = null;
         if (convertView == null) {
@@ -58,6 +63,12 @@ public class MyFirstAdapter extends BaseAdapter implements View.OnClickListener{
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
+            holder.imageView1.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    clickPosition.firstPosition(subjectBean.get(position).goodsList.get(position).gId);
+                }
+            });
         }
         showDatas(holder,position);
         return convertView;
@@ -161,11 +172,9 @@ public class MyFirstAdapter extends BaseAdapter implements View.OnClickListener{
         holder.currentPrice6 = (TextView)convertView.findViewById(R.id.current_price_text6);
     }
     public void setData(List<SubBean.SubjectBean> bean) {
-
         subjectBean.addAll(bean);
         notifyDataSetChanged();
     }
-
     @Override
     public void onClick(View v) {
         Intent intent = new Intent(context, ZhuanActivity.class);
@@ -177,30 +186,35 @@ public class MyFirstAdapter extends BaseAdapter implements View.OnClickListener{
         context.startActivity(intent);
         break;
     case R.id.puul_image1:
+        intent1.putExtra("key",subjectBean.get(0).goodsList.get(mPosition).gId);
+
         context.startActivity(intent1);
         break;
     case R.id.puul_image2:
+        intent1.putExtra("key",subjectBean.get(1).goodsList.get(mPosition).gId);
         context.startActivity(intent1);
         break;
     case R.id.puul_image3:
+        intent1.putExtra("key",subjectBean.get(2).goodsList.get(mPosition).gId);
         context.startActivity(intent1);
         break;
     case R.id.puul_image4:
+        intent1.putExtra("key",subjectBean.get(3).goodsList.get(mPosition).gId);
         context.startActivity(intent1);
         break;
     case R.id.puul_image5:
+        intent1.putExtra("key",subjectBean.get(4).goodsList.get(mPosition).gId);
         context.startActivity(intent1);
         break;
     case R.id.puul_image6:
+        intent1.putExtra("key",subjectBean.get(5).goodsList.get(mPosition).gId);
         context.startActivity(intent1);
         break;
     case R.id.puul_image7:
         intent.putExtra("key",subjectBean.get(mPosition)); context.startActivity(intent);
         break;
        }
-
     }
-
     public static class ViewHolder {
     ImageView imageView;
     ImageView imageView1;
@@ -250,4 +264,7 @@ public class MyFirstAdapter extends BaseAdapter implements View.OnClickListener{
 //            container.removeView((View)object);
 //        }
 //    }
+    public interface OnClickPosition{
+    public void firstPosition(String  position);
+}
 }

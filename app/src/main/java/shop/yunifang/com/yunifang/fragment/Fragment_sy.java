@@ -29,6 +29,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import shop.yunifang.com.yunifang.R;
+import shop.yunifang.com.yunifang.activity.BuyActivity;
 import shop.yunifang.com.yunifang.activity.WebActivity;
 import shop.yunifang.com.yunifang.activity.views.ViewsInterface;
 import shop.yunifang.com.yunifang.adapter.GridAdapter;
@@ -52,6 +53,7 @@ public class Fragment_sy extends Fragment implements ViewsInterface,View.OnClick
     private ListView mListView1;
     private GridView gridView;
     private View view2;
+    private List<SubBean.GoodsBean>mListId;
     private    List<SubBean.SubjectBean> subjectBeen;
     private Handler pagerhHandler = new Handler(){
         @Override
@@ -69,7 +71,6 @@ public class Fragment_sy extends Fragment implements ViewsInterface,View.OnClick
     private List<SubBean.Ad1Bean> ad1Been;
     private List<SubBean.ActivityInfoListBean> activityInfoListBeen;
     private ArrayList<SubBean.Ad5Bean> myBeen;
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -87,6 +88,7 @@ public class Fragment_sy extends Fragment implements ViewsInterface,View.OnClick
         view = View.inflate(context, R.layout.fragment_sy, null);
         mPullRefreshListView = (PullToRefreshListView) view.findViewById(R.id.pull_refresh_sy);
         mListView1 = mPullRefreshListView.getRefreshableView();
+
         // Need to use the Actual ListView when registering for Context Menu
         registerForContextMenu(mListView1);
     }
@@ -107,7 +109,7 @@ public class Fragment_sy extends Fragment implements ViewsInterface,View.OnClick
 
             @Override
             public void onLastItemVisible() {
-                Toast.makeText(getActivity(), "End of List!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "最后一页啦!", Toast.LENGTH_SHORT).show();
             }
         });
         /**
@@ -166,24 +168,49 @@ public class Fragment_sy extends Fragment implements ViewsInterface,View.OnClick
         GridAdapter gridAdapter = new GridAdapter(context);
         gridAdapter.setData(defaultGoodsListBeen);
         gridView.setAdapter(gridAdapter);
+        gridAdapter.setOnGridViewListener(new GridAdapter.OnGridViewListener() {
+            @Override
+            public void gridItemPosition(String  position) {
+                Intent intent = new Intent(context, BuyActivity.class);
+                intent.putExtra("key",position+"");
+                startActivity(intent);
+            }
+        });
 //        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 //            @Override
 //            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                Toast.makeText(context,"这是条目"+position,Toast.LENGTH_SHORT).show();
+//
 //            }
 //        });
         List<SubBean.SubjectBean> subjectsBeen = datas.data.subjects;
+//        addAllId(subjectsBeen);
         Message msg = Message.obtain();
         msg.obj = subjectsBeen;
         handler.sendMessage(msg);
+
 //        mAdapter.notifyDataSetChanged();
 
 //刷新完成
 //        mPullRefreshListView.onRefreshComplete();
     }
 
+//
+//    private void addAllId(List<SubBean.SubjectBean> subjectsBeen) {
+//        mListId = new ArrayList<>();
+//        for(int i=0;i<subjectsBeen.size()-1;i++) {
+//            mListId.addAll(subjectsBeen.get(i).goodsList);
+//        }
+//            mListId.addAll(subjectBeen.get(1).goodsList);
+//            mListId.addAll(subjectBeen.get(2).goodsList);
+//            mListId.addAll(subjectBeen.get(3).goodsList);
+//            mListId.addAll(subjectBeen.get(4).goodsList);
+//            mListId.addAll(subjectBeen.get(5).goodsList);
+//            mListId.addAll(subjectBeen.get(6).goodsList);
+
+
+
     private void showView1(List<SubBean.Ad5Bean> ad5Been) {
-        myBeen = new ArrayList<SubBean.Ad5Bean>();
+        myBeen = new ArrayList<>();
         myBeen.addAll(ad5Been);
         ImageView year_happy1 = (ImageView) view1.findViewById(R.id.year_happy1);
         Utils.showImage(ad5Been.get(0).image,year_happy1);
@@ -224,6 +251,14 @@ public class Fragment_sy extends Fragment implements ViewsInterface,View.OnClick
             adapter = new MyFirstAdapter(context);
             adapter.setData(bean);
             mListView1.setAdapter(adapter);
+            adapter.setOnMyFirstAdapter(new MyFirstAdapter.OnClickPosition() {
+                @Override
+                public void firstPosition(String position) {
+                    Intent intent = new Intent(context, BuyActivity.class);
+                    intent.putExtra("key",position+"");
+                    startActivity(intent);
+                }
+            });
         }
     };
 //八张图片点击事件

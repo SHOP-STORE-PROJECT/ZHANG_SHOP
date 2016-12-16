@@ -21,6 +21,8 @@ public class CateGoryBean implements Serializable{
 
     }
     public class GoodsBriefBean implements Serializable{
+        @SerializedName("id")
+        public String goodsId;
         public String efficacy;
         public String goods_img;
         public String goods_name;
