@@ -21,7 +21,7 @@ import shop.yunifang.com.yunifang.utils.Utils;
 /**
  * Created by ZhangFanfan on 2016/12/8.
  */
-//sfagfdgfd
+
 public class MyFirstAdapter extends BaseAdapter implements View.OnClickListener{
 
     private Context context;
@@ -186,28 +186,28 @@ public class MyFirstAdapter extends BaseAdapter implements View.OnClickListener{
         context.startActivity(intent);
         break;
     case R.id.puul_image1:
-        intent1.putExtra("key",subjectBean.get(0).goodsList.get(mPosition).gId);
+        intent1.putExtra("key",subjectBean.get(mPosition).goodsList.get(mPosition).gId);
 
         context.startActivity(intent1);
         break;
     case R.id.puul_image2:
-        intent1.putExtra("key",subjectBean.get(1).goodsList.get(mPosition).gId);
+        intent1.putExtra("key",subjectBean.get(mPosition).goodsList.get(mPosition).gId);
         context.startActivity(intent1);
         break;
     case R.id.puul_image3:
-        intent1.putExtra("key",subjectBean.get(2).goodsList.get(mPosition).gId);
+        intent1.putExtra("key",subjectBean.get(mPosition).goodsList.get(mPosition).gId);
         context.startActivity(intent1);
         break;
     case R.id.puul_image4:
-        intent1.putExtra("key",subjectBean.get(3).goodsList.get(mPosition).gId);
+        intent1.putExtra("key",subjectBean.get(mPosition).goodsList.get(mPosition).gId);
         context.startActivity(intent1);
         break;
     case R.id.puul_image5:
-        intent1.putExtra("key",subjectBean.get(4).goodsList.get(mPosition).gId);
+        intent1.putExtra("key",subjectBean.get(mPosition).goodsList.get(mPosition).gId);
         context.startActivity(intent1);
         break;
     case R.id.puul_image6:
-        intent1.putExtra("key",subjectBean.get(5).goodsList.get(mPosition).gId);
+        intent1.putExtra("key",subjectBean.get(mPosition).goodsList.get(mPosition).gId);
         context.startActivity(intent1);
         break;
     case R.id.puul_image7:

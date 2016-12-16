@@ -17,16 +17,13 @@ import shop.yunifang.com.yunifang.modle.HttpUtils;
 public class MyPent {
     //对获得的数据进行操作
     private static ViewsInterface mAnInterface;
-    private static int first;
     //对httputils进行初始化操作
     public static void myPent(Context context,String url){
 
         HttpUtils.netRequest(context).volleyRequest(url,new CallBack() {
             @Override
             public void httpSuccess(String response) {
-
                     mAnInterface.successGet(response);
-
             }
             @Override
             public void httpFailed(VolleyError error) {
@@ -36,18 +33,19 @@ public class MyPent {
     }
     public void setSy(Fragment_sy mAnInterface) {
         this.mAnInterface = mAnInterface;
-        first = 1;
     }
     public void setFl(Fragment_fl mAnInterface) {
         this.mAnInterface = mAnInterface;
-        first = 2;
     }
 
-    public void setMain(ViewsInterface mAnInterface) {
-        this.mAnInterface = mAnInterface;
-        first = 0;
-    }
+//    public void setMain(ViewsInterface mAnInterface) {
+//        this.mAnInterface = mAnInterface;
+//    }
     public void setBuy(ViewsInterface mAnInterface) {
+        this.mAnInterface = mAnInterface;
+    }
+
+    public void setFace(ViewsInterface mAnInterface) {
         this.mAnInterface = mAnInterface;
     }
 }

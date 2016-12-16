@@ -42,7 +42,7 @@ public class HttpUtils {
         }
     }
     public void volleyRequest(String url, final CallBack callBack) {
-        Log.e("response ====","++++++++++++++"+url);
+//        Log.e("response ====","++++++++++++++"+url);
         StringRequest stringRequest = new StringRequest(url,
                 new Response.Listener<String>() {
                     @Override
