@@ -10,9 +10,7 @@ import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.WebChromeClient;
 import android.webkit.WebView;
-import android.webkit.WebViewClient;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -64,13 +62,11 @@ public class  BuyActivity extends Activity implements ViewsInterface{
     private void intiViews() {
         price_goods = (TextView) findViewById(R.id.price_goods);
         desc_goods = (TextView) findViewById(R.id.desc_goods);
-        webView1 = (WebView) findViewById(R.id.web_view1);
-        webView2 = (WebView) findViewById(R.id.web_view2);
-        webView3 = (WebView) findViewById(R.id.web_view3);
+
         mPager = (ViewPager) findViewById(R.id.buy_viewpager);
         buyBack = (ImageView) findViewById(R.id.buy_back);
         buy_list = (ListView) findViewById(R.id.buy_list);
-        //TODO 点击返回商品界面
+        // 点击返回商品界面
         buyBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -103,23 +99,9 @@ private Handler handler = new Handler(){
 
         desc_goods.setText(goods.data.goods.goods_name+"\n"+goods.data.goods.efficacy);
         price_goods.setText(goods.data.goods.shop_price+"\t"+goods.data.goods.market_price);
-//网络网址加载
-        webView1.loadUrl(activities.get(0).description);
-        webView1.getSettings().setJavaScriptEnabled(true);
-        webView1.setWebViewClient(new WebViewClient());
-        webView1.setWebChromeClient(new WebChromeClient());
 
-        webView2.loadUrl(activities.get(2).description);
-        webView2.getSettings().setJavaScriptEnabled(true);
-        webView2.setWebViewClient(new WebViewClient());
-        webView2.setWebChromeClient(new WebChromeClient());
-
-        webView3.loadUrl(activities.get(1).description);
-        webView3.getSettings().setJavaScriptEnabled(true);
-        webView3.setWebViewClient(new WebViewClient());
-        webView3.setWebChromeClient(new WebChromeClient());
         //list集合数据加载
-buy_list.setAdapter(new ArrayAdapter<Goods.GoodsActivity>(context,android.R.layout.simple_list_item_1,goods.data.activity));
+buy_list.setAdapter(new ArrayAdapter<>(context,android.R.layout.simple_list_item_1,goods.data.activity));
     }
 };
     public  class BuyViewPagerAdapter extends PagerAdapter{
