@@ -28,6 +28,7 @@ import java.util.List;
 
 import shop.yunifang.com.yunifang.R;
 import shop.yunifang.com.yunifang.activity.BuyActivity;
+import shop.yunifang.com.yunifang.activity.CateActivity;
 import shop.yunifang.com.yunifang.activity.FaceActivity;
 import shop.yunifang.com.yunifang.activity.views.ViewsInterface;
 import shop.yunifang.com.yunifang.adapter.CateAdapter;
@@ -189,7 +190,7 @@ public class Fragment_fl extends Fragment implements ViewsInterface,View.OnClick
 //// TODO: 2016/12/13 界面点击事件
     @Override
     public void onClick(View v) {
-
+Intent intent1 = new Intent(context, CateActivity.class);
         switch(v.getId()){
             case R.id.cate_item_image1:
                 Intent intent = new Intent(context, FaceActivity.class);
@@ -198,36 +199,70 @@ public class Fragment_fl extends Fragment implements ViewsInterface,View.OnClick
                 startActivity(intent);
                 break;
             case R.id.small_image1:
+              intent1.putExtra("key",myBeen.get(1).children.get(1).cateId);
+                startActivity(intent1);
                 break;
             case R.id.small_image2:
+                intent1.putExtra("key",myBeen.get(1).children.get(2).cateId);
+                startActivity(intent1);
                 break;
             case R.id.small_image3:
+                intent1.putExtra("key",myBeen.get(1).children.get(3).cateId);
+                startActivity(intent1);
                 break;
             case R.id.small_image4:
+                intent1.putExtra("key",myBeen.get(1).children.get(4).cateId);
+                startActivity(intent1);
                 break;
             case R.id.small_image5:
+                intent1.putExtra("key",myBeen.get(1).children.get(5).cateId);
+                startActivity(intent1);
                 break;
             case R.id.gx_image1:
+                intent1.putExtra("key",myBeen.get(0).children.get(0).cateId);
+                startActivity(intent1);
                 break;
             case R.id.gx_image2:
+                intent1.putExtra("key",myBeen.get(0).children.get(1).cateId);
+                startActivity(intent1);
                 break;
             case R.id.gx_image3:
+                intent1.putExtra("key",myBeen.get(0).children.get(2).cateId);
+                startActivity(intent1);
                 break;
             case R.id.gx_image4:
+                intent1.putExtra("key",myBeen.get(0).children.get(3).cateId);
+                startActivity(intent1);
                 break;
             case R.id.gx_image5:
+                intent1.putExtra("key",myBeen.get(0).children.get(4).cateId);
+                startActivity(intent1);
                 break;
             case R.id.fz_text1:fz_text1.setTextColor(Color.RED);
+                intent1.putExtra("key",myBeen.get(2).children.get(0).cateId);
+                startActivity(intent1);
                 break;
             case R.id.fz_text2:fz_text2.setTextColor(Color.RED);
+                intent1.putExtra("key",myBeen.get(2).children.get(1).cateId);
+                startActivity(intent1);
+
                 break;
             case R.id.fz_text3:fz_text3.setTextColor(Color.RED);
+                intent1.putExtra("key",myBeen.get(2).children.get(2).cateId);
+                startActivity(intent1);
                 break;
             case R.id.fz_text4:fz_text4.setTextColor(Color.RED);
+                intent1.putExtra("key",myBeen.get(2).children.get(3).cateId);
+                startActivity(intent1);
+
                 break;
             case R.id.fz_text5:fz_text5.setTextColor(Color.RED);
+                intent1.putExtra("key",myBeen.get(2).children.get(4).cateId);
+                startActivity(intent1);
                 break;
             case R.id.fz_text6:fz_text6.setTextColor(Color.RED);
+                intent1.putExtra("key",myBeen.get(2).children.get(5).cateId);
+                startActivity(intent1);
                 break;
         }
     }

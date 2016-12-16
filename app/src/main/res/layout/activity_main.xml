@@ -20,27 +20,25 @@
     <RadioGroup
         android:id="@+id/group"
         android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:layout_marginTop="3dp"
+        android:layout_height="50dp"
         android:orientation="horizontal"
-        android:gravity="center"
+        android:gravity="bottom"
         >
     <RadioButton
         android:id="@+id/rb01"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_weight="1"
         android:drawableTop="@drawable/selector_sy"
         android:checked="true"
         android:gravity="center"
-        android:text="首页"
         android:button="@null"
+        android:text="首页"
         />
-
     <RadioButton
         android:id="@+id/rb02"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_weight="1"
         android:gravity="center"
         android:drawableTop="@drawable/selected_fl"
@@ -49,24 +47,23 @@
         />
     <RadioButton
         android:id="@+id/rb03"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_weight="1"
         android:gravity="center"
         android:drawableTop="@drawable/selected_gw"
-        android:button="@null"
         android:text="购物车"
+        android:button="@null"
         />
     <RadioButton
         android:id="@+id/rb04"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_weight="1"
         android:gravity="center"
         android:drawableTop="@drawable/selected_wd"
-        android:button="@null"
         android:text="我的"
+        android:button="@null"
         />
-
     </RadioGroup>
 </LinearLayout>

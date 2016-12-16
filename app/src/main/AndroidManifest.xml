@@ -30,6 +30,7 @@
         <activity android:name=".activity.TimeActivity" />
         <activity android:name=".activity.LoginMainActivity" />
         <activity android:name=".activity.ZhuanActivity" />
+        <activity android:name=".activity.CateActivity"/>
 
         <!-- 短信权限 -->
         <activity

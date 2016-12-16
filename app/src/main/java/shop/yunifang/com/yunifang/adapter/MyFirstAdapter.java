@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -186,28 +187,33 @@ public class MyFirstAdapter extends BaseAdapter implements View.OnClickListener{
         context.startActivity(intent);
         break;
     case R.id.puul_image1:
-        intent1.putExtra("key",subjectBean.get(mPosition).goodsList.get(mPosition).gId);
-
+        intent1.putExtra("key",subjectBean.get(mPosition).goodsList.get(0).gId);
+        Toast.makeText(context,"puul_image2"+mPosition,Toast.LENGTH_SHORT).show();
         context.startActivity(intent1);
         break;
     case R.id.puul_image2:
-        intent1.putExtra("key",subjectBean.get(mPosition).goodsList.get(mPosition).gId);
+        intent1.putExtra("key",subjectBean.get(mPosition).goodsList.get(1).gId);
+        Toast.makeText(context,"puul_image2"+mPosition,Toast.LENGTH_SHORT).show();
         context.startActivity(intent1);
         break;
     case R.id.puul_image3:
-        intent1.putExtra("key",subjectBean.get(mPosition).goodsList.get(mPosition).gId);
+        Toast.makeText(context,"puul_image2"+mPosition,Toast.LENGTH_SHORT).show();
+        intent1.putExtra("key",subjectBean.get(mPosition).goodsList.get(2).gId);
         context.startActivity(intent1);
         break;
     case R.id.puul_image4:
-        intent1.putExtra("key",subjectBean.get(mPosition).goodsList.get(mPosition).gId);
+        Toast.makeText(context,"puul_image2"+mPosition,Toast.LENGTH_SHORT).show();
+        intent1.putExtra("key",subjectBean.get(mPosition).goodsList.get(3).gId);
         context.startActivity(intent1);
         break;
     case R.id.puul_image5:
-        intent1.putExtra("key",subjectBean.get(mPosition).goodsList.get(mPosition).gId);
+        Toast.makeText(context,"puul_image2"+mPosition,Toast.LENGTH_SHORT).show();
+        intent1.putExtra("key",subjectBean.get(mPosition).goodsList.get(4).gId);
         context.startActivity(intent1);
         break;
     case R.id.puul_image6:
-        intent1.putExtra("key",subjectBean.get(mPosition).goodsList.get(mPosition).gId);
+        Toast.makeText(context,"puul_image2"+mPosition,Toast.LENGTH_SHORT).show();
+        intent1.putExtra("key",subjectBean.get(mPosition).goodsList.get(5).gId);
         context.startActivity(intent1);
         break;
     case R.id.puul_image7:

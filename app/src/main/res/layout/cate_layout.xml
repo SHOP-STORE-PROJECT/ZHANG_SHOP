@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_weight="12"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:src="@mipmap/back_normala"
+            android:id="@+id/cate__back"
+            android:layout_weight="8"
+            android:layout_width="match_parent"
+            android:layout_height="40dp" />
+        <TextView
+            android:textSize="20sp"
+            android:gravity="center"
+            android:text="面膜"
+            android:id="@+id/what_face"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="40dp" />
+    </LinearLayout>
+<GridView
+    android:gravity="center"
+    android:horizontalSpacing="10dp"
+    android:verticalSpacing="10dp"
+    android:numColumns="2"
+    android:layout_weight="1"
+    android:id="@+id/cate_grid"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"></GridView>
+</LinearLayout>

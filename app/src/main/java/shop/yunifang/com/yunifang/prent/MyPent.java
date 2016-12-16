@@ -48,4 +48,8 @@ public class MyPent {
     public void setFace(ViewsInterface mAnInterface) {
         this.mAnInterface = mAnInterface;
     }
+
+    public void setCate(ViewsInterface mAnInterface) {
+        this.mAnInterface = mAnInterface;
+    }
 }

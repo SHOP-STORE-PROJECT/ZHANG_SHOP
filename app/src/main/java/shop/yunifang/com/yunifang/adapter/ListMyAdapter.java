@@ -54,8 +54,8 @@ public class ListMyAdapter extends BaseAdapter{
             vh= (ViewHolder) view.getTag();
         }
 
-            vh.listtv.setText(list.get(i).name);
-            vh.listimg.setBackgroundResource(list.get(i).img);
+//            vh.listtv.setText(list.get(i).name);
+//            vh.listimg.setBackgroundResource(list.get(i).img);
         return view;
     }
 
