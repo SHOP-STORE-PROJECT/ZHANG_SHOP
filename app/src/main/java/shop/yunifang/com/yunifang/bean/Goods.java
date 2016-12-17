@@ -1,5 +1,6 @@
 package shop.yunifang.com.yunifang.bean;
 
+import android.annotation.SuppressLint;
 import android.os.Parcel;
 import android.os.Parcelable;
 
@@ -16,7 +17,8 @@ public class Goods {
         public List<GoodsComments>comments;
         public GoodsDes goods;
     }
-    public class GoodsActivity{
+    @SuppressLint("ParcelCreator")
+    public class GoodsActivity implements Parcelable{
      public String description;
      public String title;
 
@@ -24,10 +26,36 @@ public class Goods {
         public String toString() {
             return "   " + title;
         }
+
+        @Override
+        public int describeContents() {
+            return 0;
+        }
+
+        @Override
+        public void writeToParcel(Parcel dest, int flags) {
+
+        }
     }
-    public class GoodsComments{
+    @SuppressLint("ParcelCreator")
+    public class GoodsComments implements Parcelable{
         public GoodsUser user;
         public String content;
+
+        @Override
+        public String toString() {
+            return "\t" + content;
+        }
+
+        @Override
+        public int describeContents() {
+            return 0;
+        }
+
+        @Override
+        public void writeToParcel(Parcel dest, int flags) {
+
+        }
     }
     public class GoodsDes{
         public String goods_name;
@@ -37,25 +65,15 @@ public class Goods {
         public List<GoodsAttributes>attributes;
         public List<GoodsGallery>gallery;
     }
+    @SuppressLint("ParcelCreator")
     public class GoodsAttributes implements Parcelable {
         public String attr_name;
         public String attr_value;
 
-        protected GoodsAttributes(Parcel in) {
-            attr_name = in.readString();
-            attr_value = in.readString();
+        @Override
+        public String toString() {
+            return  attr_name + "\t" + attr_value;
         }
-        public  final Creator<GoodsAttributes> CREATOR = new Creator<GoodsAttributes>() {
-            @Override
-            public GoodsAttributes createFromParcel(Parcel in) {
-                return new GoodsAttributes(in);
-            }
-
-            @Override
-            public GoodsAttributes[] newArray(int size) {
-                return new GoodsAttributes[size];
-            }
-        };
 
         @Override
         public int describeContents() {
@@ -64,8 +82,7 @@ public class Goods {
 
         @Override
         public void writeToParcel(Parcel dest, int flags) {
-            dest.writeString(attr_name);
-            dest.writeString(attr_value);
+
         }
     } public class GoodsGallery{
         public String normal_url;

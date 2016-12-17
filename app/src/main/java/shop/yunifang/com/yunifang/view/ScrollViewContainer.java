@@ -1,8 +1,8 @@
 package shop.yunifang.com.yunifang.view;
 
-import android.app.Notification;
 import android.content.Context;
 import android.os.Handler;
+import android.os.Message;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.VelocityTracker;
@@ -17,7 +17,9 @@ import java.util.TimerTask;
  * Created by ZhangFanfan on 2016/12/15.
  */
 
-public class ScrollViewContainer extends RelativeLayout {
+public class ScrollViewContainer extends RelativeLayout
+{
+
     /**
      * 自动上滑
      */
@@ -63,30 +65,38 @@ public class ScrollViewContainer extends RelativeLayout {
     private MyTimer mTimer;
     private float mLastY;
     /**
-     * 用于控制是否变动布局的另一个条件，mEvents==0时布局可以拖拽了，mEvents==-1时可以舍弃将要到来的第一个move事件，
-     * 这点是去除多点拖动剧变的关键
+     * 用于控制是否变动布局的另一个条件，mEvents==0时布局可以变动
      */
     private int mEvents;
 
-    private Handler handler = new Handler() {
+    private Handler handler = new Handler()
+    {
 
-        public void handleMessage(Notification.MessagingStyle.Message msg) {
-            if (mMoveLen != 0) {
-                if (state == AUTO_UP) {
+        @Override
+        public void handleMessage(Message msg)
+        {
+            if (mMoveLen != 0)
+            {
+                if (state == AUTO_UP)
+                {
                     mMoveLen -= SPEED;
-                    if (mMoveLen <= -mViewHeight) {
+                    if (mMoveLen <= -mViewHeight)
+                    {
                         mMoveLen = -mViewHeight;
                         state = DONE;
                         mCurrentViewIndex = 1;
                     }
-                } else if (state == AUTO_DOWN) {
+                } else if (state == AUTO_DOWN)
+                {
                     mMoveLen += SPEED;
-                    if (mMoveLen >= 0) {
+                    if (mMoveLen >= 0)
+                    {
                         mMoveLen = 0;
                         state = DONE;
                         mCurrentViewIndex = 0;
                     }
-                } else {
+                } else
+                {
                     mTimer.cancel();
                 }
             }
@@ -95,33 +105,45 @@ public class ScrollViewContainer extends RelativeLayout {
 
     };
 
-    public ScrollViewContainer(Context context) {
+    public ScrollViewContainer(Context context)
+    {
         super(context);
         init();
     }
 
-    public ScrollViewContainer(Context context, AttributeSet attrs) {
+    public ScrollViewContainer(Context context, AttributeSet attrs)
+    {
         super(context, attrs);
         init();
     }
 
-    public ScrollViewContainer(Context context, AttributeSet attrs, int defStyle) {
+    public ScrollViewContainer(Context context, AttributeSet attrs, int defStyle)
+    {
         super(context, attrs, defStyle);
         init();
     }
 
-    private void init() {
+    private void init()
+    {
         mTimer = new MyTimer(handler);
     }
 
     @Override
-    public boolean dispatchTouchEvent(MotionEvent ev) {
-        switch (ev.getActionMasked()) {
+    public boolean dispatchTouchEvent(MotionEvent ev)
+    {
+        switch (ev.getActionMasked())
+        {
             case MotionEvent.ACTION_DOWN:
-                if (vt == null)
-                    vt = VelocityTracker.obtain();
-                else
-                    vt.clear();
+                try
+                {
+                    if (vt == null)
+                        vt = VelocityTracker.obtain();
+                    else
+                        vt.clear();
+                } catch (Exception e)
+                {
+                    e.printStackTrace();
+                }
                 mLastY = ev.getY();
                 vt.addMovement(ev);
                 mEvents = 0;
@@ -133,32 +155,40 @@ public class ScrollViewContainer extends RelativeLayout {
                 break;
             case MotionEvent.ACTION_MOVE:
                 vt.addMovement(ev);
-                if (canPullUp && mCurrentViewIndex == 0 && mEvents == 0) {
+                if (canPullUp && mCurrentViewIndex == 0 && mEvents == 0)
+                {
                     mMoveLen += (ev.getY() - mLastY);
                     // 防止上下越界
-                    if (mMoveLen > 0) {
+                    if (mMoveLen > 0)
+                    {
                         mMoveLen = 0;
                         mCurrentViewIndex = 0;
-                    } else if (mMoveLen < -mViewHeight) {
+                    } else if (mMoveLen < -mViewHeight)
+                    {
                         mMoveLen = -mViewHeight;
                         mCurrentViewIndex = 1;
 
                     }
-                    if (mMoveLen < -8) {
+                    if (mMoveLen < -8)
+                    {
                         // 防止事件冲突
                         ev.setAction(MotionEvent.ACTION_CANCEL);
                     }
-                } else if (canPullDown && mCurrentViewIndex == 1 && mEvents == 0) {
+                } else if (canPullDown && mCurrentViewIndex == 1 && mEvents == 0)
+                {
                     mMoveLen += (ev.getY() - mLastY);
                     // 防止上下越界
-                    if (mMoveLen < -mViewHeight) {
+                    if (mMoveLen < -mViewHeight)
+                    {
                         mMoveLen = -mViewHeight;
                         mCurrentViewIndex = 1;
-                    } else if (mMoveLen > 0) {
+                    } else if (mMoveLen > 0)
+                    {
                         mMoveLen = 0;
                         mCurrentViewIndex = 0;
                     }
-                    if (mMoveLen > 8 - mViewHeight) {
+                    if (mMoveLen > 8 - mViewHeight)
+                    {
                         // 防止事件冲突
                         ev.setAction(MotionEvent.ACTION_CANCEL);
                     }
@@ -175,14 +205,18 @@ public class ScrollViewContainer extends RelativeLayout {
                 float mYV = vt.getYVelocity();
                 if (mMoveLen == 0 || mMoveLen == -mViewHeight)
                     break;
-                if (Math.abs(mYV) < 500) {
+                if (Math.abs(mYV) < 500)
+                {
                     // 速度小于一定值的时候当作静止释放，这时候两个View往哪移动取决于滑动的距离
-                    if (mMoveLen <= -mViewHeight / 2) {
+                    if (mMoveLen <= -mViewHeight / 2)
+                    {
                         state = AUTO_UP;
-                    } else if (mMoveLen > -mViewHeight / 2) {
+                    } else if (mMoveLen > -mViewHeight / 2)
+                    {
                         state = AUTO_DOWN;
                     }
-                } else {
+                } else
+                {
                     // 抬起手指时速度方向决定两个View往哪移动
                     if (mYV < 0)
                         state = AUTO_UP;
@@ -190,11 +224,6 @@ public class ScrollViewContainer extends RelativeLayout {
                         state = AUTO_DOWN;
                 }
                 mTimer.schedule(2);
-                try {
-                    vt.recycle();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
                 break;
 
         }
@@ -203,7 +232,21 @@ public class ScrollViewContainer extends RelativeLayout {
     }
 
     @Override
-    protected void onLayout(boolean changed, int l, int t, int r, int b) {
+    protected void onLayout(boolean changed, int l, int t, int r, int b)
+    {
+        if (!isMeasured)
+        {
+            isMeasured = true;
+
+            mViewHeight = getMeasuredHeight();
+            mViewWidth = getMeasuredWidth();
+
+            topView = getChildAt(0);
+            bottomView = getChildAt(0);
+
+            bottomView.setOnTouchListener(bottomViewTouchListener);
+            topView.setOnTouchListener(topViewTouchListener);
+        }
         topView.layout(0, (int) mMoveLen, mViewWidth,
                 topView.getMeasuredHeight() + (int) mMoveLen);
         bottomView.layout(0, topView.getMeasuredHeight() + (int) mMoveLen,
@@ -211,27 +254,12 @@ public class ScrollViewContainer extends RelativeLayout {
                         + bottomView.getMeasuredHeight());
     }
 
-    @Override
-    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-        if (!isMeasured) {
-            isMeasured = true;
-
-            mViewHeight = getMeasuredHeight();
-            mViewWidth = getMeasuredWidth();
-
-            topView = getChildAt(0);
-            bottomView = getChildAt(1);
-
-            bottomView.setOnTouchListener(bottomViewTouchListener);
-            topView.setOnTouchListener(topViewTouchListener);
-        }
-    }
-
-    private OnTouchListener topViewTouchListener = new OnTouchListener() {
+    private OnTouchListener topViewTouchListener = new OnTouchListener()
+    {
 
         @Override
-        public boolean onTouch(View v, MotionEvent event) {
+        public boolean onTouch(View v, MotionEvent event)
+        {
             ScrollView sv = (ScrollView) v;
             if (sv.getScrollY() == (sv.getChildAt(0).getMeasuredHeight() - sv
                     .getMeasuredHeight()) && mCurrentViewIndex == 0)
@@ -241,10 +269,12 @@ public class ScrollViewContainer extends RelativeLayout {
             return false;
         }
     };
-    private OnTouchListener bottomViewTouchListener = new OnTouchListener() {
+    private OnTouchListener bottomViewTouchListener = new OnTouchListener()
+    {
 
         @Override
-        public boolean onTouch(View v, MotionEvent event) {
+        public boolean onTouch(View v, MotionEvent event)
+        {
             ScrollView sv = (ScrollView) v;
             if (sv.getScrollY() == 0 && mCurrentViewIndex == 1)
                 canPullDown = true;
@@ -254,18 +284,22 @@ public class ScrollViewContainer extends RelativeLayout {
         }
     };
 
-    class MyTimer {
+    class MyTimer
+    {
         private Handler handler;
         private Timer timer;
         private MyTask mTask;
 
-        public MyTimer(Handler handler) {
+        public MyTimer(Handler handler)
+        {
             this.handler = handler;
             timer = new Timer();
         }
 
-        public void schedule(long period) {
-            if (mTask != null) {
+        public void schedule(long period)
+        {
+            if (mTask != null)
+            {
                 mTask.cancel();
                 mTask = null;
             }
@@ -273,22 +307,27 @@ public class ScrollViewContainer extends RelativeLayout {
             timer.schedule(mTask, 0, period);
         }
 
-        public void cancel() {
-            if (mTask != null) {
+        public void cancel()
+        {
+            if (mTask != null)
+            {
                 mTask.cancel();
                 mTask = null;
             }
         }
 
-        class MyTask extends TimerTask {
+        class MyTask extends TimerTask
+        {
             private Handler handler;
 
-            public MyTask(Handler handler) {
+            public MyTask(Handler handler)
+            {
                 this.handler = handler;
             }
 
             @Override
-            public void run() {
+            public void run()
+            {
                 handler.obtainMessage().sendToTarget();
             }
 
