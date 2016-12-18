@@ -18,6 +18,7 @@ import android.view.ViewGroup;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
@@ -85,7 +86,9 @@ public class Fragment_sy extends Fragment implements ViewsInterface,View.OnClick
         pent = new MyPent();
         pent.setSy(this);
         MyPent.myPent(context, Api.homeUrl);
+
         view = View.inflate(context, R.layout.fragment_sy, null);
+
         mPullRefreshListView = (PullToRefreshListView) view.findViewById(R.id.pull_refresh_sy);
         mListView1 = mPullRefreshListView.getRefreshableView();
 
@@ -128,6 +131,13 @@ public class Fragment_sy extends Fragment implements ViewsInterface,View.OnClick
         pager.setAdapter(pagerAdapter);
         //添加一个脚部
         view2 = View.inflate(context, R.layout.footer_view_layout, null);
+        TextView view3 = (TextView) view2.findViewById(R.id.loader_more_text);
+        view3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
         gridView = (GridView) view2.findViewById(R.id.footer_grid_item);
         mListView1.addFooterView(view2);
         mListView1.addHeaderView(view1);

@@ -3,12 +3,26 @@
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:layout_height="match_parent">
-<TextView
-    android:textSize="18sp"
-    android:gravity="center"
-    android:text="面膜"
-    android:layout_width="match_parent"
-    android:layout_height="40dp" />
+    <LinearLayout
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+        <ImageView
+            android:layout_weight="8"
+            android:src="@mipmap/back_normal"
+            android:id="@+id/face_back"
+            android:layout_width="match_parent"
+            android:layout_height="25dp" />
+        <TextView
+            android:layout_weight="1"
+            android:textSize="18sp"
+            android:gravity="center"
+            android:text="面膜"
+            android:layout_width="match_parent"
+            android:layout_height="40dp" />
+    </LinearLayout>
+
     <TextView
         android:background="@color/secondary_text"
         android:layout_width="match_parent"
@@ -49,12 +63,12 @@
             android:layout_width="match_parent"
             android:layout_height="40dp" />
     </LinearLayout>
-    <TextView
-        android:background="@color/secondary_text"
-        android:layout_width="match_parent"
-        android:layout_height="1dp" />
+    <!--<TextView-->
+        <!--android:background="@color/secondary_text"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="1dp" />-->
     <android.support.v4.view.ViewPager
         android:id="@+id/face_mm_viewpager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="wrap_content" />
 </LinearLayout>

@@ -12,6 +12,7 @@ import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
@@ -31,7 +32,7 @@ import shop.yunifang.com.yunifang.prent.MyPent;
  * Created by ZhangFanfan on 2016/12/13.
  */
 
-public class FaceActivity extends Activity implements View.OnClickListener,ViewsInterface{
+public class FaceActivity extends Activity implements View.OnClickListener, ViewsInterface {
     private ViewPager facePager;
     private TextView textView1;
     private TextView textView2;
@@ -39,16 +40,28 @@ public class FaceActivity extends Activity implements View.OnClickListener,Views
     private ArrayList<CateGoryBean.CateBean> category;
     private Context context;
     private List<DetailBean.DetailData> detailDatas;
-   private MyPent pent;
-private Handler  handler = new Handler(){
-    @Override
-    public void handleMessage(Message msg) {
-     DetailBean bean = (DetailBean) msg.obj;
-        List<DetailBean.DetailData>list = bean.data;
+    private MyPent pent;
+    private FaceBaseAdapter adapter;
 
-            detailDatas=list;
-    }
-};
+    private Handler handler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            DetailBean bean = (DetailBean) msg.obj;
+            List<DetailBean.DetailData> list = bean.data;
+            detailDatas.remove(detailDatas);
+            detailDatas = list;
+            adapter.setData(detailDatas);
+           adapter.notifyDataSetChanged();
+            adapter.setOnClickListener(new FaceBaseAdapter.OnClickListener() {
+                @Override
+                public void returnData(String tag) {
+                    Intent intent = new Intent(context,BuyActivity.class);
+                    intent.putExtra("key",tag);
+                    startActivity(intent);
+                }
+            });
+        }
+    };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,59 +69,16 @@ private Handler  handler = new Handler(){
         context = this;
         pent = new MyPent();
         pent.setFace(this);
-//        MyPent.myPent(this, Api.getCategory(9+""));
         //数据初始化
         initViews();
     }
-//    private void netRequest(final String target)  {
-////        datas.removeAll(datas);
-//            new Thread(){
-//                private String json;
-//                private int code;
-//                @Override
-//                public void run() {
-//                    URL url = null;
-//                    try {
-//                        url = new URL(target);
-//                        //要访问的URL地址
-//                        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-//                        code = conn.getResponseCode();
-//                        if(code == 200){
-//                            InputStream stream = conn.getInputStream();
-//                            json = streamToString(stream);
-//                            DetailBean bean = new Gson().fromJson(json,DetailBean.class);
-////                            datas .addAll(bean.data);
-//                            Message msg = Message.obtain();
-//                            msg.obj = bean;
-//                            handler.sendMessage(msg);
-//                        }
-//                    } catch (Exception e) {
-//                        e.printStackTrace();
-//                    }
-//                }
-//            }.start();
-//    }
-//    private String streamToString(InputStream stream) {
-//        ByteArrayOutputStream bos = new ByteArrayOutputStream();
-//        int len;
-//        byte[] b = new byte[1024];
-//        try {
-//            while((len = stream.read(b))!=-1){
-//                bos.write(b,0,len);
-//            } Log.e("ByteArrayOutputStream",bos.toString());
-//
-//            return bos.toString();
-//
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//        return null;
-//    }
     private void initViews() {
+
         detailDatas = new ArrayList<>();
         Intent intent = getIntent();
-        category = (ArrayList<CateGoryBean.CateBean>)intent.getSerializableExtra("key");
-//        Log.e("category  == ",category.get(1).children.get(6).cateId+"          ------------");
+        category = (ArrayList<CateGoryBean.CateBean>) intent.getSerializableExtra("key");
+        //网络数据请求
+        MyPent.myPent(context, Api.getCategory(category.get(1).children.get(6).cateId));
         textView1 = (TextView) findViewById(R.id.zs_mm);
         textView1.setOnClickListener(this);
         textView1.setTextColor(Color.RED);
@@ -116,6 +86,13 @@ private Handler  handler = new Handler(){
         textView2.setOnClickListener(this);
         textView3 = (TextView) findViewById(R.id.nj_mm);
         textView3.setOnClickListener(this);
+        ImageView imageView = (ImageView) findViewById(R.id.face_back);
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FaceActivity.this.finish();
+            }
+        });
         facePager = (ViewPager) findViewById(R.id.face_mm_viewpager);
         facePager.setAdapter(new FaceAdaper());
         //ViewPager監聽事件
@@ -123,58 +100,65 @@ private Handler  handler = new Handler(){
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
             }
+
             @Override
             public void onPageSelected(int position) {
                 textView1.setTextColor(Color.BLACK);
                 textView2.setTextColor(Color.BLACK);
                 textView3.setTextColor(Color.BLACK);
-             switch(position){
-                 case 0:
-                     //网络数据请求
-                     MyPent.myPent(context, Api.getCategory(category.get(1).children.get(6).cateId));
-                     textView1.setTextColor(Color.RED);
-                     break;
-                 case 1:
-                     //网络数据请求
-                     MyPent.myPent(context, Api.getCategory(category.get(1).children.get(7).cateId));
-                     textView2.setTextColor(Color.RED);
-                     break;
-                 case 2:
-                     //网络数据请求
-                     MyPent.myPent(context, Api.getCategory(category.get(1).children.get(8).cateId));
-                     textView3.setTextColor(Color.RED);
-                     break;
-             }
+                switch (position) {
+                    case 0:
+                        //网络数据请求
+                        MyPent.myPent(context, Api.getCategory(category.get(1).children.get(6).cateId));
+                        textView1.setTextColor(Color.RED);
+                        break;
+                    case 1:
+                        //网络数据请求
+                        MyPent.myPent(context, Api.getCategory(category.get(1).children.get(7).cateId));
+                        textView2.setTextColor(Color.RED);
+                        break;
+                    case 2:
+                        //网络数据请求
+                        MyPent.myPent(context, Api.getCategory(category.get(1).children.get(8).cateId));
+                        textView3.setTextColor(Color.RED);
+                        break;
+                }
             }
+
             @Override
             public void onPageScrollStateChanged(int state) {
             }
         });
     }
+
     @Override
     public void onClick(View v) {
-        switch(v.getId()){
+        switch (v.getId()) {
             case R.id.zs_mm:
                 //网络数据请求
                 facePager.setCurrentItem(0);
                 break;
             case R.id.sm_mm:
                 facePager.setCurrentItem(1);
+
                 break;
             case R.id.nj_mm:
 
                 facePager.setCurrentItem(2);
+
                 break;
         }
+        adapter = new FaceBaseAdapter(detailDatas, context);
+        adapter.setData(detailDatas);
+        adapter.notifyDataSetChanged();
     }
 
     @Override
     public void successGet(String response) {
-        DetailBean bean = new Gson().fromJson(response,DetailBean.class);
-//                            datas .addAll(bean.data);
-                            Message msg = Message.obtain();
-                            msg.obj = bean;
-                            handler.sendMessage(msg);
+        DetailBean bean = new Gson().fromJson(response, DetailBean.class);
+        Message msg = Message.obtain();
+        msg.obj = bean;
+        handler.sendMessage(msg);
     }
 
     @Override
@@ -182,14 +166,14 @@ private Handler  handler = new Handler(){
 
     }
 
-    class FaceAdaper extends PagerAdapter{
+    class FaceAdaper extends PagerAdapter {
 
-        private FaceBaseAdapter adapter;
 
         @Override
         public int getCount() {
             return 3;
         }
+
         @Override
         public boolean isViewFromObject(View view, Object object) {
             return view == object;
@@ -197,17 +181,20 @@ private Handler  handler = new Handler(){
 
         @Override
         public Object instantiateItem(ViewGroup container, int position) {
-            View view = View.inflate(context,R.layout.cate_footer_layout,null);
+            View view = View.inflate(context, R.layout.cate_footer_layout, null);
             GridView gridView = (GridView) view.findViewById(R.id.footer_grid_item_cate);
-                adapter = new FaceBaseAdapter(detailDatas,context);
-                gridView.setAdapter(adapter);
+
+            adapter = new FaceBaseAdapter(detailDatas, context);
+            adapter.setData(detailDatas);
+            adapter.notifyDataSetChanged();
+            gridView.setAdapter(adapter);
             container.addView(view);
             return view;
         }
+
         @Override
         public void destroyItem(ViewGroup container, int position, Object object) {
-            container.removeView((View)object);
+            container.removeView((View) object);
         }
     }
-
 }
